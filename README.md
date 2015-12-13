@@ -12,7 +12,7 @@ pod 'MGCollapsibleHeader'
 Or simply copy the `MGCollapsibleHeader/` folder into your project.
 
 ##How to use
-To use the collapsible header, you must first configure your `UIViewController` with a header view. Simply set the Class of this view as `MGCollapsibleHeaderView` and it will be ready to configure. The view collapses to a size of 60 px by default, but can be set:  
+To use the collapsible header, you must first configure your `UIViewController` with a header view. Simply set the Class of this view as `MGCollapsibleHeaderView` and it will be ready to configure. The view collapses to a size of 60 px by default, but can be set:
 ```objc
 [self.headerView setMinimumHeaderHeight:100.]
 ```   
@@ -41,7 +41,7 @@ Here are some examples from the Demo:
 											  [MGTransformAttribute attribute:MGAttributeCornerRadius value:17.]]];
 ```   
    
-Lastly, trigger the header view to collapse. If using scrolling, the `scrollViewDidScroll` delegate call is the ideal place for this.   
+Lastly, trigger the header view to collapse. If using scrolling, the `scrollViewDidScroll` delegate call is the ideal place for this.
 ```objc
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 	[self.headerView collapseToOffset:scrollView.contentOffset];
