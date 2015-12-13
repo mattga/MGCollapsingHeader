@@ -22,8 +22,8 @@ You can then provide the top `NSLayoutConstraint` of a body view to expand as th
 [self.headerView setBodyViewTop:self.tableViewTop]
 ```
 
-Next, add any subviews of the header (or any views really), to animate with the header as it collapses. Two methods are available to you:  
-1. `addTransformingSubview:attributes:` Adds a subview of the header that transforms as the user scrolls. See [Attributes](#Attributes) for more on how to configure the transformation.    
+Next, add any subviews of the header (or any views really), to animate with the header as it collapses. Two methods are available to you:   
+1. `addTransformingSubview:attributes:` Adds a subview of the header that transforms as the user scrolls. See [Attributes](#attributes) for more on how to configure the transformation.    
 2. `addFadingSubview:fadeBy:` Adds a subview of the header that fades as the user scrolls.  
 
 Here are some examples from the Demo:
@@ -61,3 +61,7 @@ Attributes are used to describe a subview at the end of collapsing. The followin
 `MGAttributeShadowOpacity`  
 
 These attributes will be (linearly) animated to from their default values of the corresponding view.
+
+##TODO
+- Transformation curve functions (EaseIn, EaseOut, EaseInOut)
+- Add delegate calls
