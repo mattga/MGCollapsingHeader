@@ -4,8 +4,8 @@ A UIView subclass to manage collapsing and expanding of a header view. Subviews 
 ![Demo Gif](Screenshots/mgcollapsibleheader_demo.gif)
 
 ##Requirements
--This custom header view relies on constraints to transform subviews. AutoLayout is assumed to be enabled and used.   
--Supports iOS 7, 8, 9
+- This custom header view relies on constraints to transform subviews. AutoLayout is assumed to be enabled and used.   
+- Supports iOS 7, 8, 9
 
 ##Installation
 ###### With [Cocoa Pods](https://cocoapods.org/):
