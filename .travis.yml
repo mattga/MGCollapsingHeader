@@ -1,0 +1,10 @@
+language:
+- objective-c
+cache:
+- bundler
+before_install:
+- bundle install
+script:
+- cd Demo && pod install && cd $TRAVIS_BUILD_DIR
+# - xctool test
+after_success:
