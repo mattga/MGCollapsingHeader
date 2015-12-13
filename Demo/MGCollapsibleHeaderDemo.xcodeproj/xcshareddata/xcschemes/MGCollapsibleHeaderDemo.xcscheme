@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "72B8F98C8F8514A7FD69701D0ABD9A3D"
+               BuildableName = "libPods.a"
+               BlueprintName = "Pods"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "A9FF51031C1C0D6A00DE8059"
                BuildableName = "MGCollapsibleHeaderDemo.app"
                BlueprintName = "MGCollapsibleHeaderDemo"
@@ -28,26 +42,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A9FF511C1C1C0D6A00DE8059"
-               BuildableName = "MGCollapsibleHeaderDemoTests.xctest"
-               BlueprintName = "MGCollapsibleHeaderDemoTests"
-               ReferencedContainer = "container:MGCollapsibleHeaderDemo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A9FF51271C1C0D6A00DE8059"
-               BuildableName = "MGCollapsibleHeaderDemoUITests.xctest"
-               BlueprintName = "MGCollapsibleHeaderDemoUITests"
-               ReferencedContainer = "container:MGCollapsibleHeaderDemo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

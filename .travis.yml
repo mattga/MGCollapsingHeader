@@ -20,4 +20,4 @@ script:
     - pod lib lint
     - cd Demo
     - pod install
-    - xctool -workspace MGCollapsibleHeaderDemo.xcworkspace -scheme 'MGCollapsibleHeaderDemo'
+    - xctool -workspace MGCollapsibleHeaderDemo.xcworkspace -scheme 'MGCollapsibleHeaderDemo' -sdk iphonesimulator
