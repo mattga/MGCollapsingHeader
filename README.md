@@ -1,7 +1,6 @@
 # MGCollapsibleHeader
 
 [![Pod Version](https://img.shields.io/cocoapods/v/MGCollapsibleHeader.svg)](https://cocoapods.org/pods/MGCollapsibleHeader)
-[![Build Status](https://travis-ci.org/mattga/MGCollapsibleHeader.svg?branch=master)](https://travis-ci.org/mattga/MGCollapsibleHeader)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
 A UIView subclass to manage collapsing and expanding of a header view. Subviews of the header are configured to transform to any collapsed layout. The header is intended to work with a UIScrollView or UITableView as the user scrolls through content, but by all means can be used in other ways.
