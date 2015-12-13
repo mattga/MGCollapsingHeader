@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6F9BEE3BF5E9E2422F3DAEB2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B8C313D4A77F61E4D45788 /* libPods.a */; };
+		A9FF51091C1C0D6A00DE8059 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FF51081C1C0D6A00DE8059 /* main.m */; };
+		A9FF510C1C1C0D6A00DE8059 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FF510B1C1C0D6A00DE8059 /* AppDelegate.m */; };
+		A9FF510F1C1C0D6A00DE8059 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FF510E1C1C0D6A00DE8059 /* ViewController.m */; };
+		A9FF51121C1C0D6A00DE8059 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FF51101C1C0D6A00DE8059 /* Main.storyboard */; };
+		A9FF51141C1C0D6A00DE8059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9FF51131C1C0D6A00DE8059 /* Assets.xcassets */; };
+		A9FF51171C1C0D6A00DE8059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FF51151C1C0D6A00DE8059 /* LaunchScreen.storyboard */; };
+		A9FF51221C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FF51211C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.m */; };
+		A9FF512D1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FF512C1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9FF511E1C1C0D6A00DE8059 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9FF50FC1C1C0D6A00DE8059 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9FF51031C1C0D6A00DE8059;
+			remoteInfo = MGCollapsibleHeaderDemo;
+		};
+		A9FF51291C1C0D6A00DE8059 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9FF50FC1C1C0D6A00DE8059 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9FF51031C1C0D6A00DE8059;
+			remoteInfo = MGCollapsibleHeaderDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06B231DC036EB98E4CA299D6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		14B2F4E53580905DB7E8A474 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A9FF51041C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGCollapsibleHeaderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9FF51081C1C0D6A00DE8059 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A9FF510A1C1C0D6A00DE8059 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A9FF510B1C1C0D6A00DE8059 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A9FF510D1C1C0D6A00DE8059 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A9FF510E1C1C0D6A00DE8059 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A9FF51111C1C0D6A00DE8059 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A9FF51131C1C0D6A00DE8059 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9FF51161C1C0D6A00DE8059 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A9FF51181C1C0D6A00DE8059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9FF511D1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGCollapsibleHeaderDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9FF51211C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGCollapsibleHeaderDemoTests.m; sourceTree = "<group>"; };
+		A9FF51231C1C0D6A00DE8059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9FF51281C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGCollapsibleHeaderDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9FF512C1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGCollapsibleHeaderDemoUITests.m; sourceTree = "<group>"; };
+		A9FF512E1C1C0D6A00DE8059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7B8C313D4A77F61E4D45788 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9FF51011C1C0D6A00DE8059 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F9BEE3BF5E9E2422F3DAEB2 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9FF511A1C1C0D6A00DE8059 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9FF51251C1C0D6A00DE8059 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1B541A2FD23C71F2AB2DB6C8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06B231DC036EB98E4CA299D6 /* Pods.debug.xcconfig */,
+				14B2F4E53580905DB7E8A474 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		56EB575427814A70CF311B64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D7B8C313D4A77F61E4D45788 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9FF50FB1C1C0D6A00DE8059 = {
+			isa = PBXGroup;
+			children = (
+				A9FF51061C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo */,
+				A9FF51201C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests */,
+				A9FF512B1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests */,
+				A9FF51051C1C0D6A00DE8059 /* Products */,
+				1B541A2FD23C71F2AB2DB6C8 /* Pods */,
+				56EB575427814A70CF311B64 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A9FF51051C1C0D6A00DE8059 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9FF51041C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo.app */,
+				A9FF511D1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.xctest */,
+				A9FF51281C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9FF51061C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo */ = {
+			isa = PBXGroup;
+			children = (
+				A9FF510A1C1C0D6A00DE8059 /* AppDelegate.h */,
+				A9FF510B1C1C0D6A00DE8059 /* AppDelegate.m */,
+				A9FF510D1C1C0D6A00DE8059 /* ViewController.h */,
+				A9FF510E1C1C0D6A00DE8059 /* ViewController.m */,
+				A9FF51101C1C0D6A00DE8059 /* Main.storyboard */,
+				A9FF51131C1C0D6A00DE8059 /* Assets.xcassets */,
+				A9FF51151C1C0D6A00DE8059 /* LaunchScreen.storyboard */,
+				A9FF51181C1C0D6A00DE8059 /* Info.plist */,
+				A9FF51071C1C0D6A00DE8059 /* Supporting Files */,
+			);
+			path = MGCollapsibleHeaderDemo;
+			sourceTree = "<group>";
+		};
+		A9FF51071C1C0D6A00DE8059 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9FF51081C1C0D6A00DE8059 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9FF51201C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9FF51211C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.m */,
+				A9FF51231C1C0D6A00DE8059 /* Info.plist */,
+			);
+			path = MGCollapsibleHeaderDemoTests;
+			sourceTree = "<group>";
+		};
+		A9FF512B1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A9FF512C1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.m */,
+				A9FF512E1C1C0D6A00DE8059 /* Info.plist */,
+			);
+			path = MGCollapsibleHeaderDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9FF51031C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9FF51311C1C0D6A00DE8059 /* Build configuration list for PBXNativeTarget "MGCollapsibleHeaderDemo" */;
+			buildPhases = (
+				01A547E4BF6D31FBEEE1D5B3 /* Check Pods Manifest.lock */,
+				A9FF51001C1C0D6A00DE8059 /* Sources */,
+				A9FF51011C1C0D6A00DE8059 /* Frameworks */,
+				A9FF51021C1C0D6A00DE8059 /* Resources */,
+				BAB2CDAD8B4EAB7836F1E8FD /* Embed Pods Frameworks */,
+				2D263C59A69162695EFD41BF /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MGCollapsibleHeaderDemo;
+			productName = MGCollapsibleHeaderDemo;
+			productReference = A9FF51041C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9FF511C1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9FF51341C1C0D6A00DE8059 /* Build configuration list for PBXNativeTarget "MGCollapsibleHeaderDemoTests" */;
+			buildPhases = (
+				A9FF51191C1C0D6A00DE8059 /* Sources */,
+				A9FF511A1C1C0D6A00DE8059 /* Frameworks */,
+				A9FF511B1C1C0D6A00DE8059 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9FF511F1C1C0D6A00DE8059 /* PBXTargetDependency */,
+			);
+			name = MGCollapsibleHeaderDemoTests;
+			productName = MGCollapsibleHeaderDemoTests;
+			productReference = A9FF511D1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A9FF51271C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9FF51371C1C0D6A00DE8059 /* Build configuration list for PBXNativeTarget "MGCollapsibleHeaderDemoUITests" */;
+			buildPhases = (
+				A9FF51241C1C0D6A00DE8059 /* Sources */,
+				A9FF51251C1C0D6A00DE8059 /* Frameworks */,
+				A9FF51261C1C0D6A00DE8059 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9FF512A1C1C0D6A00DE8059 /* PBXTargetDependency */,
+			);
+			name = MGCollapsibleHeaderDemoUITests;
+			productName = MGCollapsibleHeaderDemoUITests;
+			productReference = A9FF51281C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9FF50FC1C1C0D6A00DE8059 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Matthew Gardner";
+				TargetAttributes = {
+					A9FF51031C1C0D6A00DE8059 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					A9FF511C1C1C0D6A00DE8059 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = A9FF51031C1C0D6A00DE8059;
+					};
+					A9FF51271C1C0D6A00DE8059 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = A9FF51031C1C0D6A00DE8059;
+					};
+				};
+			};
+			buildConfigurationList = A9FF50FF1C1C0D6A00DE8059 /* Build configuration list for PBXProject "MGCollapsibleHeaderDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9FF50FB1C1C0D6A00DE8059;
+			productRefGroup = A9FF51051C1C0D6A00DE8059 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9FF51031C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo */,
+				A9FF511C1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests */,
+				A9FF51271C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9FF51021C1C0D6A00DE8059 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9FF51171C1C0D6A00DE8059 /* LaunchScreen.storyboard in Resources */,
+				A9FF51141C1C0D6A00DE8059 /* Assets.xcassets in Resources */,
+				A9FF51121C1C0D6A00DE8059 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9FF511B1C1C0D6A00DE8059 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9FF51261C1C0D6A00DE8059 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01A547E4BF6D31FBEEE1D5B3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2D263C59A69162695EFD41BF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAB2CDAD8B4EAB7836F1E8FD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9FF51001C1C0D6A00DE8059 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9FF510F1C1C0D6A00DE8059 /* ViewController.m in Sources */,
+				A9FF510C1C1C0D6A00DE8059 /* AppDelegate.m in Sources */,
+				A9FF51091C1C0D6A00DE8059 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9FF51191C1C0D6A00DE8059 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9FF51221C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9FF51241C1C0D6A00DE8059 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9FF512D1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9FF511F1C1C0D6A00DE8059 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9FF51031C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo */;
+			targetProxy = A9FF511E1C1C0D6A00DE8059 /* PBXContainerItemProxy */;
+		};
+		A9FF512A1C1C0D6A00DE8059 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9FF51031C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo */;
+			targetProxy = A9FF51291C1C0D6A00DE8059 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A9FF51101C1C0D6A00DE8059 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9FF51111C1C0D6A00DE8059 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A9FF51151C1C0D6A00DE8059 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9FF51161C1C0D6A00DE8059 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9FF512F1C1C0D6A00DE8059 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9FF51301C1C0D6A00DE8059 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9FF51321C1C0D6A00DE8059 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06B231DC036EB98E4CA299D6 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MGCollapsibleHeaderDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mg.apps.MGCollapsibleHeaderDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A9FF51331C1C0D6A00DE8059 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14B2F4E53580905DB7E8A474 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MGCollapsibleHeaderDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mg.apps.MGCollapsibleHeaderDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A9FF51351C1C0D6A00DE8059 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MGCollapsibleHeaderDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mg.apps.MGCollapsibleHeaderDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGCollapsibleHeaderDemo.app/MGCollapsibleHeaderDemo";
+			};
+			name = Debug;
+		};
+		A9FF51361C1C0D6A00DE8059 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MGCollapsibleHeaderDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mg.apps.MGCollapsibleHeaderDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGCollapsibleHeaderDemo.app/MGCollapsibleHeaderDemo";
+			};
+			name = Release;
+		};
+		A9FF51381C1C0D6A00DE8059 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MGCollapsibleHeaderDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mg.apps.MGCollapsibleHeaderDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MGCollapsibleHeaderDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		A9FF51391C1C0D6A00DE8059 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MGCollapsibleHeaderDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mg.apps.MGCollapsibleHeaderDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MGCollapsibleHeaderDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9FF50FF1C1C0D6A00DE8059 /* Build configuration list for PBXProject "MGCollapsibleHeaderDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9FF512F1C1C0D6A00DE8059 /* Debug */,
+				A9FF51301C1C0D6A00DE8059 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9FF51311C1C0D6A00DE8059 /* Build configuration list for PBXNativeTarget "MGCollapsibleHeaderDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9FF51321C1C0D6A00DE8059 /* Debug */,
+				A9FF51331C1C0D6A00DE8059 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9FF51341C1C0D6A00DE8059 /* Build configuration list for PBXNativeTarget "MGCollapsibleHeaderDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9FF51351C1C0D6A00DE8059 /* Debug */,
+				A9FF51361C1C0D6A00DE8059 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9FF51371C1C0D6A00DE8059 /* Build configuration list for PBXNativeTarget "MGCollapsibleHeaderDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9FF51381C1C0D6A00DE8059 /* Debug */,
+				A9FF51391C1C0D6A00DE8059 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9FF50FC1C1C0D6A00DE8059 /* Project object */;
+}
