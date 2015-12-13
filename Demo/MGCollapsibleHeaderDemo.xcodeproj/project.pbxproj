@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F9BEE3BF5E9E2422F3DAEB2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B8C313D4A77F61E4D45788 /* libPods.a */; };
 		A9FF51091C1C0D6A00DE8059 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FF51081C1C0D6A00DE8059 /* main.m */; };
 		A9FF510C1C1C0D6A00DE8059 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FF510B1C1C0D6A00DE8059 /* AppDelegate.m */; };
 		A9FF510F1C1C0D6A00DE8059 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FF510E1C1C0D6A00DE8059 /* ViewController.m */; };
@@ -62,7 +61,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F9BEE3BF5E9E2422F3DAEB2 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,12 +169,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9FF51311C1C0D6A00DE8059 /* Build configuration list for PBXNativeTarget "MGCollapsibleHeaderDemo" */;
 			buildPhases = (
-				01A547E4BF6D31FBEEE1D5B3 /* Check Pods Manifest.lock */,
 				A9FF51001C1C0D6A00DE8059 /* Sources */,
 				A9FF51011C1C0D6A00DE8059 /* Frameworks */,
 				A9FF51021C1C0D6A00DE8059 /* Resources */,
-				BAB2CDAD8B4EAB7836F1E8FD /* Embed Pods Frameworks */,
-				2D263C59A69162695EFD41BF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -291,54 +286,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		01A547E4BF6D31FBEEE1D5B3 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		2D263C59A69162695EFD41BF /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BAB2CDAD8B4EAB7836F1E8FD /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A9FF51001C1C0D6A00DE8059 /* Sources */ = {

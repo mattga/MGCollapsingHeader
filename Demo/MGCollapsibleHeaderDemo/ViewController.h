@@ -12,9 +12,7 @@
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerTop;
 @property (weak, nonatomic) IBOutlet MGCollapsibleHeaderView *headerView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTop;
 
 @property (weak, nonatomic) IBOutlet UIButton *button1;

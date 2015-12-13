@@ -45,14 +45,6 @@ typedef enum : NSUInteger {
 /*!
  * @typedef MGAttribute
  * @brief Enumeration of attributes that can be transformed when scrolling.
- * @constant MGAttributeX x-value of a view's origin.
- * @constant MGAttributeY y-value of a view's origin.
- * @constant MGAttributeWidth Width of a view.
- * @constant MGAttributeHeight Height of a view.
- * @constant MGAttributeAlpha Apha value of a view.
- * @constant MGAttributeCornerRadius Corner radius of a view.
- * @constant MGAttributeShadowRadius Shadow radius of a view.
- * @constant MGAttributeCornerRadius Shadow opacity of a view.
  */
 typedef enum : NSUInteger {
     MGAttributeX = 1,
@@ -89,21 +81,26 @@ typedef enum : NSUInteger {
     NSLayoutConstraint *headerTop;
 }
 
+/*!
+ * @brief The minimum height of the header in it's collapsed state.
+ */
 @property (nonatomic) CGFloat minimumHeaderHeight;
 
-@property (strong, nonatomic) NSLayoutConstraint *scrollViewTop;
+/*!
+ * @brief The top layout constraint to be expanded as the header collapses.
+ */
+@property (strong, nonatomic) NSLayoutConstraint *bodyViewTop;
 
 /*!
- * @discussion Adds a subview of the header that transforms as the user scrolls.
+ * @discussion Adds a view that transforms as the user scrolls.
  * @param view The view to transform.
- * @param attrs A dictionary of attributes that describe the view in it's condensed form.
- Keys must be a MGAttribute; Values must be a double.
+ * @param attrs An array of MGTransformAttributes that describe the view in it's condensed form.
  * @return Boolean identifying if the transform was successfully added.
  */
 - (BOOL)addTransformingSubview:(UIView *)view attributes:(NSArray *)attrs;
 
 /*!
- * @discussion Adds a subview of the header that fades as the user scrolls.
+ * @discussion Adds a view that fades as the user scrolls.
  * @param view The view to fade away.
  * @param ratio The ratio of collapsing at which the subview will finish fading away.
  * @return Boolean identifying if the fading subview was successfully added.

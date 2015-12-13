@@ -147,7 +147,6 @@
                         <outlet property="button4" destination="IQs-4N-4VJ" id="tQq-ix-DY2"/>
                         <outlet property="headerView" destination="21w-94-rdw" id="Aeq-Ho-393"/>
                         <outlet property="label" destination="VRA-lU-RkO" id="1DY-p5-HDh"/>
-                        <outlet property="tableView" destination="OJQ-Fr-G4g" id="fns-KG-bLm"/>
                         <outlet property="tableViewTop" destination="u6K-Mm-YmQ" id="hze-nU-gAj"/>
                         <outlet property="titleLabel" destination="yBu-D1-8Jg" id="389-CF-zqP"/>
                     </connections>

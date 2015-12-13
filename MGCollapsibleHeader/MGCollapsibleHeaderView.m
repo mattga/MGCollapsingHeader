@@ -60,17 +60,20 @@
 
 - (void)commonInit
 {
-    _minimumHeaderHeight = 60.;
-
     transfViews = [@[] mutableCopy];
     fadeViews   = [@[] mutableCopy];
     transfAttrs = [@{} mutableCopy];
     constrs     = [@{} mutableCopy];
     constrVals  = [@{} mutableCopy];
     alphaRatios = [@{} mutableCopy];
-
+	
     header_ht  = self.frame.size.height;
-    offset_max = header_ht - _minimumHeaderHeight;
+	[self setMinimumHeaderHeight:60.];
+}
+
+- (void)setMinimumHeaderHeight:(CGFloat)minimumHeaderHeight {
+	_minimumHeaderHeight = minimumHeaderHeight;
+	offset_max = header_ht - _minimumHeaderHeight;
 }
 
 - (void)collapseToOffset:(CGPoint)offset
@@ -158,7 +161,7 @@
     bnrFrame.origin.y = -offset;
     self.frame        = bnrFrame;
 
-    self.scrollViewTop.constant = -offset;
+    self.bodyViewTop.constant = -offset;
 
     [self.superview layoutIfNeeded];
 }

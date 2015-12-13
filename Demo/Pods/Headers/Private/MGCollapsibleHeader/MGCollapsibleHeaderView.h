@@ -1,1 +1,0 @@
-../../../MGCollapsibleHeader/MGCollapsibleHeader/MGCollapsibleHeaderView.h
