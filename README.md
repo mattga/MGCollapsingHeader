@@ -12,7 +12,7 @@ pod 'MGCollapsibleHeader'
 Or simply copy the `MGCollapsibleHeader/` folder into your project.
 
 ##How to use
-To use the collapsible header, you must first configure your `UIViewController` with a header view. Simply set the Class of this view as `MGCollapsibleHeaderView` and it will be ready to collapse. The view reduces to a size of 60 px by default, but can be set as follows.
+To use the collapsible header, you must first configure your `UIViewController` with a header view. Simply set the Class of this view as `MGCollapsibleHeaderView` and it will be ready to configure. The view collapses to a size of 60 px by default, but can be set:
 ```objc
 [self.headerView setMinimumHeaderHeight:100.]
 ```
@@ -22,9 +22,42 @@ You can then provide the top `NSLayoutConstraint` of a body view to expand as th
 [self.headerView setBodyViewTop:self.tableViewTop]
 ```
 
+Next, add any subviews of the header (or any views really), to animate with the header as it collapses. Two methods are available to you:  
+1. `addTransformingSubview:attributes:` Adds a subview of the header that transforms as the user scrolls. See [Attributes](#Attributes) for more on how to configure the transformation.    
+2. `addFadingSubview:fadeBy:` Adds a subview of the header that fades as the user scrolls.  
+
+Here are some examples from the Demo:
+```objc
+	[self.headerView addFadingSubview:self.button1 fadeBy:.4];
+	[self.headerView addFadingSubview:self.label fadeBy:.75];
+	[self.headerView addTransformingSubview:self.button4
+								 attributes:@[[MGTransformAttribute attribute:MGAttributeX value:520.],
+											  [MGTransformAttribute attribute:MGAttributeY value:20.],
+											  [MGTransformAttribute attribute:MGAttributeWidth value:40.],
+											  [MGTransformAttribute attribute:MGAttributeHeight value:35.]]];
+	[self.headerView addTransformingSubview:self.titleLabel
+								 attributes:@[[MGTransformAttribute attribute:MGAttributeY value:20.],
+											  [MGTransformAttribute attribute:MGAttributeWidth value:120.],
+											  [MGTransformAttribute attribute:MGAttributeHeight value:34.],
+											  [MGTransformAttribute attribute:MGAttributeCornerRadius value:17.]]];
+```
+
 Lastly, trigger the header view to collapse. `scrollViewDidScroll` is the ideal place for this.
 ```objc
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 	[self.headerView collapseToOffset:scrollView.contentOffset];
 }
 ```
+
+###Attributes
+Attributes are used to describe a subview at the end of collapsing. The following are currently available:
+`MGAttributeX`  
+`MGAttributeY`  
+`MGAttributeWidth`  
+`MGAttributeHeight`  
+`MGAttributeAlpha`  
+`MGAttributeCornerRadius`  
+`MGAttributeShadowRadius`  
+`MGAttributeShadowOpacity`  
+
+These attributes will be (linearly) animated to from their default values of the corresponding view.
