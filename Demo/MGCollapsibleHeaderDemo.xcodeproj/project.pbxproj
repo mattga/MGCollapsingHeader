@@ -13,27 +13,8 @@
 		A9FF51121C1C0D6A00DE8059 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FF51101C1C0D6A00DE8059 /* Main.storyboard */; };
 		A9FF51141C1C0D6A00DE8059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9FF51131C1C0D6A00DE8059 /* Assets.xcassets */; };
 		A9FF51171C1C0D6A00DE8059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FF51151C1C0D6A00DE8059 /* LaunchScreen.storyboard */; };
-		A9FF51221C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FF51211C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.m */; };
-		A9FF512D1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FF512C1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.m */; };
 		C2032B2E75CED9F894AF9035 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B8C313D4A77F61E4D45788 /* libPods.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A9FF511E1C1C0D6A00DE8059 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A9FF50FC1C1C0D6A00DE8059 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A9FF51031C1C0D6A00DE8059;
-			remoteInfo = MGCollapsibleHeaderDemo;
-		};
-		A9FF51291C1C0D6A00DE8059 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A9FF50FC1C1C0D6A00DE8059 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A9FF51031C1C0D6A00DE8059;
-			remoteInfo = MGCollapsibleHeaderDemo;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		06B231DC036EB98E4CA299D6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -48,12 +29,6 @@
 		A9FF51131C1C0D6A00DE8059 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9FF51161C1C0D6A00DE8059 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9FF51181C1C0D6A00DE8059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9FF511D1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGCollapsibleHeaderDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9FF51211C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGCollapsibleHeaderDemoTests.m; sourceTree = "<group>"; };
-		A9FF51231C1C0D6A00DE8059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9FF51281C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGCollapsibleHeaderDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9FF512C1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGCollapsibleHeaderDemoUITests.m; sourceTree = "<group>"; };
-		A9FF512E1C1C0D6A00DE8059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7B8C313D4A77F61E4D45788 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -63,20 +38,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2032B2E75CED9F894AF9035 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9FF511A1C1C0D6A00DE8059 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9FF51251C1C0D6A00DE8059 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,8 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				A9FF51061C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo */,
-				A9FF51201C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests */,
-				A9FF512B1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests */,
 				A9FF51051C1C0D6A00DE8059 /* Products */,
 				1B541A2FD23C71F2AB2DB6C8 /* Pods */,
 				56EB575427814A70CF311B64 /* Frameworks */,
@@ -116,8 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				A9FF51041C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo.app */,
-				A9FF511D1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.xctest */,
-				A9FF51281C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,24 +103,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A9FF51201C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				A9FF51211C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.m */,
-				A9FF51231C1C0D6A00DE8059 /* Info.plist */,
-			);
-			path = MGCollapsibleHeaderDemoTests;
-			sourceTree = "<group>";
-		};
-		A9FF512B1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A9FF512C1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.m */,
-				A9FF512E1C1C0D6A00DE8059 /* Info.plist */,
-			);
-			path = MGCollapsibleHeaderDemoUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,42 +126,6 @@
 			productReference = A9FF51041C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A9FF511C1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A9FF51341C1C0D6A00DE8059 /* Build configuration list for PBXNativeTarget "MGCollapsibleHeaderDemoTests" */;
-			buildPhases = (
-				A9FF51191C1C0D6A00DE8059 /* Sources */,
-				A9FF511A1C1C0D6A00DE8059 /* Frameworks */,
-				A9FF511B1C1C0D6A00DE8059 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A9FF511F1C1C0D6A00DE8059 /* PBXTargetDependency */,
-			);
-			name = MGCollapsibleHeaderDemoTests;
-			productName = MGCollapsibleHeaderDemoTests;
-			productReference = A9FF511D1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		A9FF51271C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A9FF51371C1C0D6A00DE8059 /* Build configuration list for PBXNativeTarget "MGCollapsibleHeaderDemoUITests" */;
-			buildPhases = (
-				A9FF51241C1C0D6A00DE8059 /* Sources */,
-				A9FF51251C1C0D6A00DE8059 /* Frameworks */,
-				A9FF51261C1C0D6A00DE8059 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A9FF512A1C1C0D6A00DE8059 /* PBXTargetDependency */,
-			);
-			name = MGCollapsibleHeaderDemoUITests;
-			productName = MGCollapsibleHeaderDemoUITests;
-			productReference = A9FF51281C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -234,14 +137,6 @@
 				TargetAttributes = {
 					A9FF51031C1C0D6A00DE8059 = {
 						CreatedOnToolsVersion = 7.2;
-					};
-					A9FF511C1C1C0D6A00DE8059 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = A9FF51031C1C0D6A00DE8059;
-					};
-					A9FF51271C1C0D6A00DE8059 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = A9FF51031C1C0D6A00DE8059;
 					};
 				};
 			};
@@ -259,8 +154,6 @@
 			projectRoot = "";
 			targets = (
 				A9FF51031C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo */,
-				A9FF511C1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests */,
-				A9FF51271C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -273,20 +166,6 @@
 				A9FF51171C1C0D6A00DE8059 /* LaunchScreen.storyboard in Resources */,
 				A9FF51141C1C0D6A00DE8059 /* Assets.xcassets in Resources */,
 				A9FF51121C1C0D6A00DE8059 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9FF511B1C1C0D6A00DE8059 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9FF51261C1C0D6A00DE8059 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,36 +230,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A9FF51191C1C0D6A00DE8059 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A9FF51221C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9FF51241C1C0D6A00DE8059 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A9FF512D1C1C0D6A00DE8059 /* MGCollapsibleHeaderDemoUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A9FF511F1C1C0D6A00DE8059 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A9FF51031C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo */;
-			targetProxy = A9FF511E1C1C0D6A00DE8059 /* PBXContainerItemProxy */;
-		};
-		A9FF512A1C1C0D6A00DE8059 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A9FF51031C1C0D6A00DE8059 /* MGCollapsibleHeaderDemo */;
-			targetProxy = A9FF51291C1C0D6A00DE8059 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A9FF51101C1C0D6A00DE8059 /* Main.storyboard */ = {
@@ -510,54 +360,6 @@
 			};
 			name = Release;
 		};
-		A9FF51351C1C0D6A00DE8059 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = MGCollapsibleHeaderDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mg.apps.MGCollapsibleHeaderDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGCollapsibleHeaderDemo.app/MGCollapsibleHeaderDemo";
-			};
-			name = Debug;
-		};
-		A9FF51361C1C0D6A00DE8059 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = MGCollapsibleHeaderDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mg.apps.MGCollapsibleHeaderDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGCollapsibleHeaderDemo.app/MGCollapsibleHeaderDemo";
-			};
-			name = Release;
-		};
-		A9FF51381C1C0D6A00DE8059 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = MGCollapsibleHeaderDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mg.apps.MGCollapsibleHeaderDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = MGCollapsibleHeaderDemo;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		A9FF51391C1C0D6A00DE8059 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = MGCollapsibleHeaderDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mg.apps.MGCollapsibleHeaderDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = MGCollapsibleHeaderDemo;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -575,24 +377,6 @@
 			buildConfigurations = (
 				A9FF51321C1C0D6A00DE8059 /* Debug */,
 				A9FF51331C1C0D6A00DE8059 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A9FF51341C1C0D6A00DE8059 /* Build configuration list for PBXNativeTarget "MGCollapsibleHeaderDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A9FF51351C1C0D6A00DE8059 /* Debug */,
-				A9FF51361C1C0D6A00DE8059 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A9FF51371C1C0D6A00DE8059 /* Build configuration list for PBXNativeTarget "MGCollapsibleHeaderDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A9FF51381C1C0D6A00DE8059 /* Debug */,
-				A9FF51391C1C0D6A00DE8059 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
