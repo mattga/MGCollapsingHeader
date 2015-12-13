@@ -3,6 +3,10 @@ A UIView subclass to manage collapsing and expanding of a header view. Subviews 
 
 ![Demo Gif](Screenshots/mgcollapsibleheader_demo.gif)
 
+##Requirements
+-This custom header view relies on constraints to transform subviews. AutoLayout is assumed to be enabled and used.   
+-Supports iOS 7, 8, 9
+
 ##Installation
 ###### With [Cocoa Pods](https://cocoapods.org/):
 ```ruby
@@ -23,8 +27,8 @@ You can then provide the top `NSLayoutConstraint` of a body view to expand as th
 ```   
    
 Next, add any subviews of the header (or any views really), to animate with the header as it collapses. Two methods are available to you:   
-- `addTransformingSubview:attributes:` Adds a subview of the header that transforms as the user scrolls. See [Attributes](#attributes) for more on how to configure the transformation.    
-- `addFadingSubview:fadeBy:` Adds a subview of the header that fades as the user scrolls.   
+- `addTransformingSubview:attributes:` Adds a view that transforms as the user scrolls. An array of `MGTransformAttribute` must be provided to describe the transformation. See [Attributes](#attributes) for more.
+- `addFadingSubview:fadeBy:` Adds a view that fades as the user scrolls.   
 Here are some examples from the Demo:   
 ```objc
 	[self.headerView addFadingSubview:self.button1 fadeBy:.4];
