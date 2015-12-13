@@ -1,9 +1,5 @@
-language: objective-c
-cache:
-- bundler
-before_install:
-- bundle install
-- cd Demo && pod install && cd $TRAVIS_BUILD_DIR
-script:
-- xctool -workspace Demo/MGCollapsibleHeaderDemo.xcworkspace -scheme MGCollapsibleHeaderDemo -sdk iphonesimulator9.2 ONLY_ACTIVE_ARCH=NO
-after_success:
+language: objective-c 
+osx_image: xcode6.4
+xcode_project: MGCollapsibleHeaderDemo.xcodeproj
+xcode_scheme: MGCollapsibleHeaderDemo
+xcode_sdk: iphonesimulator9.2
