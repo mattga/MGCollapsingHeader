@@ -1,1 +1,10 @@
+PODS:
+  - MGCollapsibleHeader (1.0.2)
+
+DEPENDENCIES:
+  - MGCollapsibleHeader
+
+SPEC CHECKSUMS:
+  MGCollapsibleHeader: 4580e1f2a2ab4d62213fd46a43b5fae622a4729d
+
 COCOAPODS: 0.39.0

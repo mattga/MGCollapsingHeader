@@ -20,7 +20,6 @@
 	self.titleLabel.clipsToBounds = YES;
 	self.titleLabel.layer.cornerRadius = self.titleLabel.frame.size.height / 2.;
 	
-	[self.headerView setMinimumHeaderHeight:100.];
 	[self.headerView setBodyViewTop:self.tableViewTop];
 	[self.headerView addFadingSubview:self.button1 fadeBy:.4];
 	[self.headerView addFadingSubview:self.button2 fadeBy:.4];
