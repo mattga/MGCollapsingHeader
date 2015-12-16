@@ -5,7 +5,7 @@
 
 A UIView subclass to manage collapsing and expanding of a header view. Subviews of the header are configured to transform to any collapsed layout. The header is intended to work with a UIScrollView or UITableView as the user scrolls through content, but by all means can be used in other ways.
 
-![Demo Gif](Screenshots/mgcollapsibleheader_demo.gif)
+![Demo Gif](Screenshots/mgcollapsingheader_demo.gif)
 
 ##Requirements
 - This custom header view relies on constraints to transform subviews. AutoLayout is assumed to be enabled and used.   
@@ -14,13 +14,13 @@ A UIView subclass to manage collapsing and expanding of a header view. Subviews 
 ##Installation
 ###### With [Cocoa Pods](https://cocoapods.org/):
 ```ruby
-pod 'MGCollapsibleHeader'
+pod 'MGCollapsingHeader'
 ```
 
-Or simply copy the `MGCollapsibleHeader/` folder into your project.
+Or simply copy the `MGCollapsingHeader/` folder into your project.
 
 ##How to use
-To use the collapsible header, you must first configure your `UIViewController` with a header view. Simply set the Class of this view as `MGCollapsibleHeaderView` and it will be ready to configure. The view collapses to a size of 60 px by default, but can be set:
+To use the collapsible header, you must first configure your `UIViewController` with a header view. Simply set the Class of this view as `MGCollapsingHeaderView` and it will be ready to configure. The view collapses to a size of 60 px by default, but can be set:
 ```objc
 [self.headerView setMinimumHeaderHeight:100.]
 ```   
