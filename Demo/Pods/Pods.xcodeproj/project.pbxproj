@@ -7,74 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18C2AC9BEC712951CCE0BA9409CF390C /* MGCollapsibleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13EF6590855218C30E3963A840DCBBF /* MGCollapsibleHeaderView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		1C829F500E7B3096BB38D4EDE1E1F337 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		7167E6CBE413B826476E524B6E825B44 /* MGCollapsibleHeader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 66625D7FC0C926D6D8C73E37A0D7261D /* MGCollapsibleHeader-dummy.m */; };
-		99F3B6773EDD7343680B27535B921A0A /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
-		E8D06C0214A1ED9D100178DBEC111904 /* MGCollapsibleHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = E79746A951B0E8768BA0B41FAE8434B7 /* MGCollapsibleHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F3D98F0CA32BB963ABAF13C1E9459A3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		48C7167D832D8D4EC157330D68DE68D2 /* MGCollapsingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68325134F7717C201205A905F2BD7122 /* MGCollapsingHeaderView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		88771CDFDD59137FD6795BA4BD6728E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		8BE71661BBA3C41A3AC31A3C8303E913 /* MGCollapsingHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = D87EC03D18463ED050E3BF24C6879CD2 /* MGCollapsingHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A66B7F8E3E4565B0F45895A182762F12 /* MGCollapsingHeader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF41380026B41A56A91C16467C169CAC /* MGCollapsingHeader-dummy.m */; };
+		CAF95B968B036F52C0227025D4A113C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		E77895DCEB5D0E1C5EF405A9EFE50788 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3A1F42E8C88B7EA99910B3C9AD1A1F56 /* PBXContainerItemProxy */ = {
+		FA2397EC354737D3419770B7358006AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5EDA532F43A69723D9C6745DF8D68E20;
-			remoteInfo = MGCollapsibleHeader;
+			remoteGlobalIDString = D0F3BD46D439C066150ADE2BCA5D0BBF;
+			remoteInfo = MGCollapsingHeader;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		059F22572A4DF61D6E1252AC63676B15 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
 		272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		3374FEC16D5AB9A5214196824C945596 /* MGCollapsibleHeader-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MGCollapsibleHeader-prefix.pch"; sourceTree = "<group>"; };
 		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		606D8909F4FEB48A3965BF31CDF58D92 /* libMGCollapsibleHeader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMGCollapsibleHeader.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		66625D7FC0C926D6D8C73E37A0D7261D /* MGCollapsibleHeader-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MGCollapsibleHeader-dummy.m"; sourceTree = "<group>"; };
+		68325134F7717C201205A905F2BD7122 /* MGCollapsingHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MGCollapsingHeaderView.m; path = MGCollapsingHeader/MGCollapsingHeaderView.m; sourceTree = "<group>"; };
 		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
+		785BDF96E0670508F49416C829B4768D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		966F591412E0BE8B50EC1F1A392337C1 /* MGCollapsingHeader-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MGCollapsingHeader-prefix.pch"; sourceTree = "<group>"; };
 		98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
 		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C13EF6590855218C30E3963A840DCBBF /* MGCollapsibleHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MGCollapsibleHeaderView.m; path = MGCollapsibleHeader/MGCollapsibleHeaderView.m; sourceTree = "<group>"; };
-		E79746A951B0E8768BA0B41FAE8434B7 /* MGCollapsibleHeaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MGCollapsibleHeaderView.h; path = MGCollapsibleHeader/MGCollapsibleHeaderView.h; sourceTree = "<group>"; };
-		E8431BA8070CCFBE0D7AE75C7D471E82 /* MGCollapsibleHeader.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MGCollapsibleHeader.xcconfig; sourceTree = "<group>"; };
+		CF41380026B41A56A91C16467C169CAC /* MGCollapsingHeader-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MGCollapsingHeader-dummy.m"; sourceTree = "<group>"; };
+		D87EC03D18463ED050E3BF24C6879CD2 /* MGCollapsingHeaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MGCollapsingHeaderView.h; path = MGCollapsingHeader/MGCollapsingHeaderView.h; sourceTree = "<group>"; };
+		E6B69649246AAE7832D33BB72906C570 /* libMGCollapsingHeader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMGCollapsingHeader.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E77C0535D2605C4222BE7ECA8B5E91DB /* MGCollapsingHeader.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MGCollapsingHeader.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2FFC274F2A0B0CB9B38BBE0CE7A31F97 /* Frameworks */ = {
+		21770CFE2C8E435030228383C02A2288 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C829F500E7B3096BB38D4EDE1E1F337 /* Foundation.framework in Frameworks */,
+				88771CDFDD59137FD6795BA4BD6728E4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		98BECAB663F0D29C68C794A7ECBB562A /* Frameworks */ = {
+		96A842FA34B3EDDD46370654084C9659 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3D98F0CA32BB963ABAF13C1E9459A3E /* Foundation.framework in Frameworks */,
+				CAF95B968B036F52C0227025D4A113C6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		000C8B4A0EBC102ADC9634BC9572B961 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E8431BA8070CCFBE0D7AE75C7D471E82 /* MGCollapsibleHeader.xcconfig */,
-				66625D7FC0C926D6D8C73E37A0D7261D /* MGCollapsibleHeader-dummy.m */,
-				3374FEC16D5AB9A5214196824C945596 /* MGCollapsibleHeader-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/MGCollapsibleHeader";
-			sourceTree = "<group>";
-		};
 		037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,19 +72,40 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		6601C626CF2C0B9F895B052C9F80723D /* Products */ = {
+		09BCDA862B605369C5EEC0EE89EADD2C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				606D8909F4FEB48A3965BF31CDF58D92 /* libMGCollapsibleHeader.a */,
-				059F22572A4DF61D6E1252AC63676B15 /* libPods.a */,
+				E6B69649246AAE7832D33BB72906C570 /* libMGCollapsingHeader.a */,
+				785BDF96E0670508F49416C829B4768D /* libPods.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6E08593E602361FBD12B89115FFBB25D /* Pods */ = {
+		0D2C1A70D84BD495F63FD9E83DA9662D /* MGCollapsingHeader */ = {
 			isa = PBXGroup;
 			children = (
-				EC9A255F3F50F7D56DA63DE125EA8DEC /* MGCollapsibleHeader */,
+				D87EC03D18463ED050E3BF24C6879CD2 /* MGCollapsingHeaderView.h */,
+				68325134F7717C201205A905F2BD7122 /* MGCollapsingHeaderView.m */,
+				33D56F17BE5B6077587526CBF8F8B70D /* Support Files */,
+			);
+			path = MGCollapsingHeader;
+			sourceTree = "<group>";
+		};
+		33D56F17BE5B6077587526CBF8F8B70D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E77C0535D2605C4222BE7ECA8B5E91DB /* MGCollapsingHeader.xcconfig */,
+				CF41380026B41A56A91C16467C169CAC /* MGCollapsingHeader-dummy.m */,
+				966F591412E0BE8B50EC1F1A392337C1 /* MGCollapsingHeader-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MGCollapsingHeader";
+			sourceTree = "<group>";
+		};
+		4BA6EF7A085C550EDEC8D5E39F599777 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0D2C1A70D84BD495F63FD9E83DA9662D /* MGCollapsingHeader */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -105,8 +115,8 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				6E08593E602361FBD12B89115FFBB25D /* Pods */,
-				6601C626CF2C0B9F895B052C9F80723D /* Products */,
+				4BA6EF7A085C550EDEC8D5E39F599777 /* Pods */,
+				09BCDA862B605369C5EEC0EE89EADD2C /* Products */,
 				037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -142,62 +152,52 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		EC9A255F3F50F7D56DA63DE125EA8DEC /* MGCollapsibleHeader */ = {
-			isa = PBXGroup;
-			children = (
-				E79746A951B0E8768BA0B41FAE8434B7 /* MGCollapsibleHeaderView.h */,
-				C13EF6590855218C30E3963A840DCBBF /* MGCollapsibleHeaderView.m */,
-				000C8B4A0EBC102ADC9634BC9572B961 /* Support Files */,
-			);
-			path = MGCollapsibleHeader;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		E1C494B78810AE06451A0879EDE9EEF1 /* Headers */ = {
+		950A3E01400D268466FCABF4A04B34D2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8D06C0214A1ED9D100178DBEC111904 /* MGCollapsibleHeaderView.h in Headers */,
+				8BE71661BBA3C41A3AC31A3C8303E913 /* MGCollapsingHeaderView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5EDA532F43A69723D9C6745DF8D68E20 /* MGCollapsibleHeader */ = {
+		080B96A60B4CF9AF381839693E142507 /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2965FD6AD1B4051FABC93A9FABA394B9 /* Build configuration list for PBXNativeTarget "MGCollapsibleHeader" */;
+			buildConfigurationList = DB850F4509D925B8D71D04BA8ACAE942 /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				748464462BE3B2C5A764253B445C3172 /* Sources */,
-				98BECAB663F0D29C68C794A7ECBB562A /* Frameworks */,
-				E1C494B78810AE06451A0879EDE9EEF1 /* Headers */,
+				5C405A47F3F2EF12D1454EB5B934CD5F /* Sources */,
+				21770CFE2C8E435030228383C02A2288 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = MGCollapsibleHeader;
-			productName = MGCollapsibleHeader;
-			productReference = 606D8909F4FEB48A3965BF31CDF58D92 /* libMGCollapsibleHeader.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		72B8F98C8F8514A7FD69701D0ABD9A3D /* Pods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C944967A2EC28957D0C72A1B39EC6ED0 /* Build configuration list for PBXNativeTarget "Pods" */;
-			buildPhases = (
-				D7E644294B0BB30985CB56C8F5F15DC7 /* Sources */,
-				2FFC274F2A0B0CB9B38BBE0CE7A31F97 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C3E4368CF32636F5B3F80D221AB879EC /* PBXTargetDependency */,
+				4BAB04B4E1994A93847E73168421F10E /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = 059F22572A4DF61D6E1252AC63676B15 /* libPods.a */;
+			productReference = 785BDF96E0670508F49416C829B4768D /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D0F3BD46D439C066150ADE2BCA5D0BBF /* MGCollapsingHeader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBFCEF20056DAC5E01BD8C7CCF0C7DF8 /* Build configuration list for PBXNativeTarget "MGCollapsingHeader" */;
+			buildPhases = (
+				27DF1C390FC79AC6742D8D293C18A682 /* Sources */,
+				96A842FA34B3EDDD46370654084C9659 /* Frameworks */,
+				950A3E01400D268466FCABF4A04B34D2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MGCollapsingHeader;
+			productName = MGCollapsingHeader;
+			productReference = E6B69649246AAE7832D33BB72906C570 /* libMGCollapsingHeader.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -217,104 +217,52 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 6601C626CF2C0B9F895B052C9F80723D /* Products */;
+			productRefGroup = 09BCDA862B605369C5EEC0EE89EADD2C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5EDA532F43A69723D9C6745DF8D68E20 /* MGCollapsibleHeader */,
-				72B8F98C8F8514A7FD69701D0ABD9A3D /* Pods */,
+				D0F3BD46D439C066150ADE2BCA5D0BBF /* MGCollapsingHeader */,
+				080B96A60B4CF9AF381839693E142507 /* Pods */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		748464462BE3B2C5A764253B445C3172 /* Sources */ = {
+		27DF1C390FC79AC6742D8D293C18A682 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7167E6CBE413B826476E524B6E825B44 /* MGCollapsibleHeader-dummy.m in Sources */,
-				18C2AC9BEC712951CCE0BA9409CF390C /* MGCollapsibleHeaderView.m in Sources */,
+				A66B7F8E3E4565B0F45895A182762F12 /* MGCollapsingHeader-dummy.m in Sources */,
+				48C7167D832D8D4EC157330D68DE68D2 /* MGCollapsingHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D7E644294B0BB30985CB56C8F5F15DC7 /* Sources */ = {
+		5C405A47F3F2EF12D1454EB5B934CD5F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99F3B6773EDD7343680B27535B921A0A /* Pods-dummy.m in Sources */,
+				E77895DCEB5D0E1C5EF405A9EFE50788 /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C3E4368CF32636F5B3F80D221AB879EC /* PBXTargetDependency */ = {
+		4BAB04B4E1994A93847E73168421F10E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = MGCollapsibleHeader;
-			target = 5EDA532F43A69723D9C6745DF8D68E20 /* MGCollapsibleHeader */;
-			targetProxy = 3A1F42E8C88B7EA99910B3C9AD1A1F56 /* PBXContainerItemProxy */;
+			name = MGCollapsingHeader;
+			target = D0F3BD46D439C066150ADE2BCA5D0BBF /* MGCollapsingHeader */;
+			targetProxy = FA2397EC354737D3419770B7358006AD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0CFB4A66D9F6FF5ECF36F227F1A49202 /* Debug */ = {
+		0EEA65BD31BA3835199C6642BB632ECC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = E77C0535D2605C4222BE7ECA8B5E91DB /* MGCollapsingHeader.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		37BD840BA2AFABA3F657A09E76FBE470 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8431BA8070CCFBE0D7AE75C7D471E82 /* MGCollapsibleHeader.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MGCollapsibleHeader/MGCollapsibleHeader-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		3D3E5B3DBD935EC4C0888BDEA45A3E9F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		7402A06A6C6FCC0E3F16AEC61B91E355 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8431BA8070CCFBE0D7AE75C7D471E82 /* MGCollapsibleHeader.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MGCollapsibleHeader/MGCollapsibleHeader-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/MGCollapsingHeader/MGCollapsingHeader-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -326,6 +274,24 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
+		};
+		7A285887C353FACB5DE54D7BDBBF3AE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E77C0535D2605C4222BE7ECA8B5E91DB /* MGCollapsingHeader.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MGCollapsingHeader/MGCollapsingHeader-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
 		};
 		8D1534490D941DCA47C62AC4314182AF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -366,6 +332,23 @@
 			};
 			name = Debug;
 		};
+		8E54A6EA962786C4ACC3E022AE3DF266 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 		C5A18280E9321A9268D1C80B7DA43967 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -400,18 +383,26 @@
 			};
 			name = Release;
 		};
+		E609E209CB90FC4FF5FC65FB49C6438E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2965FD6AD1B4051FABC93A9FABA394B9 /* Build configuration list for PBXNativeTarget "MGCollapsibleHeader" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				37BD840BA2AFABA3F657A09E76FBE470 /* Debug */,
-				7402A06A6C6FCC0E3F16AEC61B91E355 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -421,11 +412,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C944967A2EC28957D0C72A1B39EC6ED0 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		DB850F4509D925B8D71D04BA8ACAE942 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0CFB4A66D9F6FF5ECF36F227F1A49202 /* Debug */,
-				3D3E5B3DBD935EC4C0888BDEA45A3E9F /* Release */,
+				8E54A6EA962786C4ACC3E022AE3DF266 /* Debug */,
+				E609E209CB90FC4FF5FC65FB49C6438E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBFCEF20056DAC5E01BD8C7CCF0C7DF8 /* Build configuration list for PBXNativeTarget "MGCollapsingHeader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A285887C353FACB5DE54D7BDBBF3AE6 /* Debug */,
+				0EEA65BD31BA3835199C6642BB632ECC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

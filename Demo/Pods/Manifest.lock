@@ -1,10 +1,10 @@
 PODS:
-  - MGCollapsibleHeader (1.0.2)
+  - MGCollapsingHeader (1.0.3)
 
 DEPENDENCIES:
-  - MGCollapsibleHeader
+  - MGCollapsingHeader
 
 SPEC CHECKSUMS:
-  MGCollapsibleHeader: 4580e1f2a2ab4d62213fd46a43b5fae622a4729d
+  MGCollapsingHeader: 3d0802035d8989bc29fb513405c5cfcc520b9f7a
 
 COCOAPODS: 0.39.0

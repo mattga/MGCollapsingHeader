@@ -25,7 +25,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol MGCollapsibleHeaderDelegate <NSObject>
+@protocol MMGCollapsingHeaderDelegate <NSObject>
 
 - (void)headerDidCollapse;
 - (void)headerDidFinishCollapsing;
@@ -73,7 +73,7 @@ typedef enum : NSUInteger {
 /*!
  * @brief Subclass of UIView that manages collapsing and expanding.
  */
-@interface MGCollapsibleHeaderView : UIView {
+@interface MGCollapsingHeaderView : UIView {
     NSMutableArray *transfViews, *fadeViews;
     NSMutableDictionary *constrs, *constrVals, *transfAttrs, *alphaRatios;
     CGFloat lastOffset;

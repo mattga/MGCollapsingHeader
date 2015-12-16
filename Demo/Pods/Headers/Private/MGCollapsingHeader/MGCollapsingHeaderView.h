@@ -1,0 +1,1 @@
+../../../MGCollapsingHeader/MGCollapsingHeader/MGCollapsingHeaderView.h

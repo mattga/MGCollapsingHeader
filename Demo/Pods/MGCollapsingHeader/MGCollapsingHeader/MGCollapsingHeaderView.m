@@ -22,7 +22,7 @@
 //  SOFTWARE.
 //
 
-#import "MGCollapsibleHeaderView.h"
+#import "MGCollapsingHeaderView.h"
 
 @implementation MGTransformAttribute
 
@@ -38,7 +38,7 @@
 
 @end
 
-@implementation MGCollapsibleHeaderView
+@implementation MGCollapsingHeaderView
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
