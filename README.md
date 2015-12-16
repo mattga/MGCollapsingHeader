@@ -1,4 +1,4 @@
-# MGCollapsibleHeader
+# MGCollapsingHeader
 
 [![Pod Version](https://img.shields.io/cocoapods/v/MGCollapsibleHeader.svg?style=flat-square)](https://cocoapods.org/pods/MGCollapsibleHeader)
 [![License](https://img.shields.io/badge/license-MIT-red.svg?style=flat-square)](https://opensource.org/licenses/MIT)
