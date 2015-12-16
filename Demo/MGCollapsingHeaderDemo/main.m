@@ -1,8 +1,8 @@
 //
 //  main.m
-//  MGCollapsibleHeaderDemo
+//  MGCollapsingHeaderDemo
 //
-//  Created by Matthew Gardner on 12/12/15.
+//  Created by Matthew Gardner on 12/16/15.
 //  Copyright © 2015 Matthew Gardner. All rights reserved.
 //
 

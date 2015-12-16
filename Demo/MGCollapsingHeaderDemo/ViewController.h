@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MGCollapsibleHeaderView.h"
+#import "MGCollapsingHeaderView.h"
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet MGCollapsibleHeaderView *headerView;
+@property (weak, nonatomic) IBOutlet MGCollapsingHeaderView *headerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTop;
 
 @property (weak, nonatomic) IBOutlet UIButton *button1;
