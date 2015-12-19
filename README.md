@@ -49,7 +49,7 @@ Here are some examples from the Demo:
 											  [MGTransformAttribute attribute:MGAttributeCornerRadius value:17.]]];
 ```   
    
-Lastly, trigger the header view to collapse. If using scrolling, the `scrollViewDidScroll` delegate call is the ideal place for this.
+Lastly, trigger the header view to collapse by an offset. It will animate if the value is at least the `minimumHeaderHeight` and at most the height originally set. If using scrolling, the `scrollViewDidScroll` delegate call is the ideal place for this.
 ```objc
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 	[self.headerView collapseToOffset:scrollView.contentOffset];
