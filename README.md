@@ -12,7 +12,7 @@ A UIView subclass to manage collapsing and expanding of a header view. Subviews 
 - Supports iOS 7, 8, 9
 
 ##Installation
-###### With [Cocoa Pods](https://cocoapods.org/):
+###### With [CocoaPods](https://cocoapods.org/):
 ```ruby
 pod 'MGCollapsingHeader'
 ```
