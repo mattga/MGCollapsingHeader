@@ -3,7 +3,7 @@
 [![Pod Version](https://img.shields.io/cocoapods/v/MGCollapsingHeader.svg?style=flat-square)](https://cocoapods.org/pods/MGCollapsingHeader)
 [![License](https://img.shields.io/badge/license-MIT-red.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-A UIView subclass to manage collapsing and expanding of a header view. Subviews of the header are configured to transform to any collapsed layout. The header is intended to work with a UIScrollView or UITableView as the user scrolls through content, but by all means can be used in other ways.
+An iOS UIView subclass to manage collapsing and expanding of a header view. Subviews of the header are configured to transform to any collapsed layout. The header is intended to work with a UIScrollView or UITableView as the user scrolls through content, but by all means can be used in other ways.
 
 ![Demo Gif](Screenshots/demo-anim.gif)
 
@@ -43,25 +43,25 @@ Here are some examples from the Demo:
 
 NSArray *attrs;
 double r = 18.;
-attrs = @[[MGTransformAttribute attribute:MGAttributeX value:self.button4.frame.origin.x - r],
-		  [MGTransformAttribute attribute:MGAttributeY value:self.button4.frame.origin.y - r],
-		  [MGTransformAttribute attribute:MGAttributeWidth value:2*r],
-		  [MGTransformAttribute attribute:MGAttributeHeight value:2*r],
-		  [MGTransformAttribute attribute:MGAttributeCornerRadius value:r],
-		  [MGTransformAttribute attribute:MGAttributeFontSize value:15.]];
+attrs = @[[MGTransform attribute:MGAttributeX value:self.button4.frame.origin.x - r],
+		  [MGTransform attribute:MGAttributeY value:self.button4.frame.origin.y - r],
+		  [MGTransform attribute:MGAttributeWidth value:2*r],
+		  [MGTransform attribute:MGAttributeHeight value:2*r],
+		  [MGTransform attribute:MGAttributeCornerRadius value:r],
+		  [MGTransform attribute:MGAttributeFontSize value:15.]];
 [self.headerView addTransformingSubview:self.button4 attributes:attrs];
 
-attrs = @[[MGTransformAttribute attribute:MGAttributeX value:520.],
-		  [MGTransformAttribute attribute:MGAttributeY value:20.],
-		  [MGTransformAttribute attribute:MGAttributeWidth value:40.],
-		  [MGTransformAttribute attribute:MGAttributeHeight value:35.]];
+attrs = @[[MGTransform attribute:MGAttributeX value:520.],
+		  [MGTransform attribute:MGAttributeY value:20.],
+		  [MGTransform attribute:MGAttributeWidth value:40.],
+		  [MGTransform attribute:MGAttributeHeight value:35.]];
 [self.headerView addTransformingSubview:self.button5 attributes:attrs];
 
-attrs = @[[MGTransformAttribute attribute:MGAttributeY value:20.],
-		  [MGTransformAttribute attribute:MGAttributeWidth value:120.],
-		  [MGTransformAttribute attribute:MGAttributeHeight value:34.],
-		  [MGTransformAttribute attribute:MGAttributeCornerRadius value:17.],
-		  [MGTransformAttribute attribute:MGAttributeFontSize value:25.]];
+attrs = @[[MGTransform attribute:MGAttributeY value:20.],
+		  [MGTransform attribute:MGAttributeWidth value:120.],
+		  [MGTransform attribute:MGAttributeHeight value:34.],
+		  [MGTransform attribute:MGAttributeCornerRadius value:17.],
+		  [MGTransform attribute:MGAttributeFontSize value:25.]];
 [self.headerView addTransformingSubview:self.label attributes:attrs];
 ```   
    
