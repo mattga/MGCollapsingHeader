@@ -1,10 +1,19 @@
 PODS:
-  - MGCollapsingHeader (1.0.3)
+  - MGCollapsingHeader (1.0.4)
 
 DEPENDENCIES:
-  - MGCollapsingHeader
+  - MGCollapsingHeader (from `https://github.com/mattga/MGCollapsingHeader.git`)
+
+EXTERNAL SOURCES:
+  MGCollapsingHeader:
+    :git: https://github.com/mattga/MGCollapsingHeader.git
+
+CHECKOUT OPTIONS:
+  MGCollapsingHeader:
+    :commit: b621af5b3f96d0c137885c33eff3ef66661787ca
+    :git: https://github.com/mattga/MGCollapsingHeader.git
 
 SPEC CHECKSUMS:
-  MGCollapsingHeader: 3d0802035d8989bc29fb513405c5cfcc520b9f7a
+  MGCollapsingHeader: 85206da39e1051c3dd7118f1970ce07ed417865b
 
 COCOAPODS: 0.39.0

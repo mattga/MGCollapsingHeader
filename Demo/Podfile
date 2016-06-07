@@ -1,2 +1,3 @@
 source 'https://github.com/CocoaPods/Specs.git'
-pod 'MGCollapsingHeader'
+
+pod 'MGCollapsingHeader', :git => 'https://github.com/mattga/MGCollapsingHeader.git'
