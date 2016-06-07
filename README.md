@@ -12,7 +12,7 @@ A UIView subclass to manage collapsing and expanding of a header view. Subviews 
 - Supports iOS 7, 8, 9
 
 ##Installation
-###### With [Cocoa Pods](https://cocoapods.org/):
+###### With [CocoaPods](https://cocoapods.org/):
 ```ruby
 pod 'MGCollapsingHeader'
 ```
@@ -49,7 +49,7 @@ Here are some examples from the Demo:
 											  [MGTransformAttribute attribute:MGAttributeCornerRadius value:17.]]];
 ```   
    
-Lastly, trigger the header view to collapse. If using scrolling, the `scrollViewDidScroll` delegate call is the ideal place for this.
+Lastly, trigger the header view to collapse by an offset. It will animate if the value is at least the `minimumHeaderHeight` and at most the height originally set. If using scrolling, the `scrollViewDidScroll` delegate call is the ideal place for this.
 ```objc
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 	[self.headerView collapseToOffset:scrollView.contentOffset];
