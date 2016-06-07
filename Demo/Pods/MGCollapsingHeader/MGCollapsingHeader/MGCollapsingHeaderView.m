@@ -79,16 +79,35 @@
 - (void)collapseToOffset:(CGPoint)offset
 {
     CGFloat dy = offset.y;
-
+	
     if (dy > 0.) {
         if (header_ht - dy > _minimumHeaderHeight) {
-            [self scrollHeaderToOffset:dy];
+			[self scrollHeaderToOffset:dy];
+			if (self.delegate) {
+				if (dy > lastOffset) {
+					[self.delegate headerDidCollapseToOffset:dy];
+				} else {
+					[self.delegate headerDidExpandToOffset:dy];
+				}
+			}
         } else if (header_ht - lastOffset > _minimumHeaderHeight) {
-            [self scrollHeaderToOffset:offset_max];
+			[self scrollHeaderToOffset:offset_max];
+			if (self.delegate) {
+				[self.delegate headerDidFinishCollapsing];
+			}
         }
     } else if (lastOffset > 0.) {
         [self scrollHeaderToOffset:0.];
+		if (self.delegate) {
+			if (dy < 0) { // Report negative offset from bouncing at top of scroll
+				[self.delegate headerDidExpandToOffset:dy];
+			} else {
+				[self.delegate headerDidFinishExpanding];
+			}
+		}
     }
+	
+	[self.superview layoutIfNeeded];
 
     lastOffset = dy;
 }
@@ -162,11 +181,10 @@
     self.frame        = bnrFrame;
 
     self.bodyViewTop.constant = -offset;
-
-    [self.superview layoutIfNeeded];
 }
 
-#pragma mark - Helpers
+#pragma mark -
+#pragma mark Helpers
 
 - (CGFloat)getViewAttribute:(MGAttribute)attribute view:(UIView *)view
 {
@@ -187,6 +205,16 @@
         return view.layer.shadowOpacity;
     case MGAttributeShadowRadius:
         return view.layer.shadowRadius;
+	case MGAttributeFontSize:
+		if ([view isKindOfClass:[UILabel class]]) {
+			return [[(UILabel*)view font] pointSize];
+		} else if ([view isKindOfClass:[UIButton class]]) {
+			return [[[(UIButton*)view titleLabel] font] pointSize];
+		} else if ([view isKindOfClass:[UITextField class]]) {
+			return [[(UITextField*)view font] pointSize];
+		} else if ([view isKindOfClass:[UITextView class]]) {
+			return [[(UITextView*)view font] pointSize];
+		}
     }
 }
 
@@ -246,17 +274,36 @@
                          ratio:ratio];
         break;
     case MGAttributeCornerRadius:
-        view.layer.cornerRadius = attr.origValue + ratio * (attr.value - attr.origValue);
+        view.layer.cornerRadius = attr.origValue + ratio * attr.dValue;
         break;
     case MGAttributeAlpha:
-        view.alpha = attr.origValue + ratio * (attr.value - attr.origValue);
+        view.alpha = attr.origValue + ratio * attr.dValue;
         break;
     case MGAttributeShadowRadius:
-        view.layer.shadowRadius = attr.origValue + ratio * (attr.value - attr.origValue);
+        view.layer.shadowRadius = attr.origValue + ratio * attr.dValue;
         break;
     case MGAttributeShadowOpacity:
-        view.layer.shadowOpacity = attr.origValue + ratio * (attr.value - attr.origValue);
+        view.layer.shadowOpacity = attr.origValue + ratio * attr.dValue;
         break;
+	case MGAttributeFontSize:
+		if ([view isKindOfClass:[UILabel class]]) {
+			font = [UIFont fontWithName:[(UILabel*)view font].familyName
+								   size:attr.origValue + ratio * attr.dValue];
+			[(UILabel*)view setFont:font];
+		} else if ([view isKindOfClass:[UIButton class]]) {
+			font = [UIFont fontWithName:[[(UIButton*)view titleLabel] font].familyName
+								   size:attr.origValue + ratio * attr.dValue];
+			[[(UIButton*)view titleLabel] setFont:font];
+		} else if ([view isKindOfClass:[UITextField class]]) {
+			font = [UIFont fontWithName:[(UITextField*)view font].familyName
+								   size:attr.origValue + ratio * attr.dValue];
+			[(UITextField*)view setFont:font];
+		} else if ([view isKindOfClass:[UITextView class]]) {
+			font = [UIFont fontWithName:[(UITextView*)view font].familyName
+								   size:attr.origValue + ratio * attr.dValue];
+			[(UITextView*)view setFont:font];
+		}
+		break;
     }
 }
 
