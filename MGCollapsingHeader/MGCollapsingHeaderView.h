@@ -55,13 +55,13 @@ typedef enum : NSUInteger {
     MGAttributeCornerRadius,
     MGAttributeShadowRadius,
     MGAttributeShadowOpacity,
-	MGAttributeFontSize
+    MGAttributeFontSize
 } MGAttribute;
 
 /*!
  * @brief Defines an attribute to be transformed when scrolling.
  */
-@interface MGTransformAttribute : NSObject
+@interface MGTransform : NSObject
 
 @property (nonatomic) MGAttribute attribute;
 @property (nonatomic) MGTransformCurve curve;
