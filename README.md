@@ -5,7 +5,7 @@
 
 A UIView subclass to manage collapsing and expanding of a header view. Subviews of the header are configured to transform to any collapsed layout. The header is intended to work with a UIScrollView or UITableView as the user scrolls through content, but by all means can be used in other ways.
 
-![Demo Gif](Screenshots/dmeo-anim.gif)
+![Demo Gif](Screenshots/demo-anim.gif)
 
 ##Requirements
 - This UIView subclass relies on constraints to transform subviews. AutoLayout is assumed to be enabled and used.   
@@ -81,7 +81,7 @@ Attributes are used to describe a subview at the end of collapsing. The followin
 `MGAttributeAlpha`  
 `MGAttributeCornerRadius`  
 `MGAttributeShadowRadius`  
-`MGAttributeShadowOpacity` 
+`MGAttributeShadowOpacity`  
 `MGAttributeFontSize`  
 
 The view's attributes will be (linearly) animated to from their default values.   
