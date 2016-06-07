@@ -214,10 +214,10 @@
 			return [[(UITextField*)view font] pointSize];
 		} else if ([view isKindOfClass:[UITextView class]]) {
 			return [[(UITextView*)view font] pointSize];
-		} else {
-			return 0.0f;
 		}
     }
+	
+	return 0.0f;
 }
 
 - (void)setAttribute:(MGTransformAttribute *)attr
