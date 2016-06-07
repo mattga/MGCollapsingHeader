@@ -22,13 +22,14 @@
 //  SOFTWARE.
 //
 
+
 #import <UIKit/UIKit.h>
 
-@protocol MMGCollapsingHeaderDelegate <NSObject>
+@protocol MGCollapsingHeaderDelegate <NSObject>
 
-- (void)headerDidCollapse;
+- (void)headerDidCollapseToOffset:(double)offset;
 - (void)headerDidFinishCollapsing;
-- (void)headerDidExpand;
+- (void)headerDidExpandToOffset:(double)offset;
 - (void)headerDidFinishExpanding;
 
 @end
@@ -53,7 +54,8 @@ typedef enum : NSUInteger {
     MGAttributeAlpha,
     MGAttributeCornerRadius,
     MGAttributeShadowRadius,
-    MGAttributeShadowOpacity
+    MGAttributeShadowOpacity,
+	MGAttributeFontSize
 } MGAttribute;
 
 /*!
@@ -78,7 +80,13 @@ typedef enum : NSUInteger {
     CGFloat lastOffset;
     CGFloat header_ht, scroll_ht, offset_max;
     NSLayoutConstraint *headerTop;
+	UIFont *font;
 }
+
+/**
+ * @brief An implementation of the header delegate.
+ */
+@property (strong, nonatomic) id<MGCollapsingHeaderDelegate> delegate;
 
 /*!
  * @brief The minimum height of the header in it's collapsed state.

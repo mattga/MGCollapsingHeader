@@ -10,7 +10,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MGCollapsingHeader:
-    :commit: b621af5b3f96d0c137885c33eff3ef66661787ca
+    :commit: 5593b51d53e235e8984027672c83fdcd10f19cef
     :git: https://github.com/mattga/MGCollapsingHeader.git
 
 SPEC CHECKSUMS:
