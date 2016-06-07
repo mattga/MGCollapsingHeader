@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/mattga/MGCollapsingHeader"
-  s.screenshots  = "https://raw.githubusercontent.com/mattga/MGCollapsingHeader/master/Screenshots/mgcollapsingheader_demo.gif"
+  s.screenshots  = "https://raw.githubusercontent.com/mattga/MGCollapsingHeader/master/Screenshots/demo-anim.gif"
 
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Matthew Gardner" => "matthew@mgardner.me" }
