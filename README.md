@@ -5,7 +5,7 @@
 
 An iOS UIView subclass to manage collapsing and expanding of a header view. Subviews of the header are configured to transform to any collapsed layout. The header works with any UIScrollView, and transforms views as the user scrolls through content.
 
-![Demo Gif](Screenshots/demo-anim.gif)
+![Demo Gif](Screenshots/mgch_demo.gif)
 
 ##Requirements
 - Autolayout (this UIView subclass relies on constraints to transform subviews)
