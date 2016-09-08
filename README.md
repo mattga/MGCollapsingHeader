@@ -33,8 +33,8 @@ You can then provide a vertical constraint (or constraints) to collapse, whether
 ```  
 
 Next, add any views to transform with the header as it collapses:  
-- `transformAttribute:byValue:` Adds a view that transforms by some value as the user scrolls. An array of `MGTransformAttribute` must be provided to describe the transformation. See [Attributes](#attributes) for what is supported.
-- `addFadingSubview:fadeBy:` Adds a view that fades as the user scrolls.   
+- `[MGTransform transformAttribute:byValue:]` Adds a view that transforms by some value as the user scrolls. An array of `MGTransformAttribute` must be provided to describe the transformation. See [Attributes](#attributes) for what is supported.
+- `[MGTransform addFadingSubview:fadeBy:]` Adds a view that fades as the user scrolls.   
 
 Examples (from the demo):   
 ```objc
@@ -73,7 +73,7 @@ attrs = @[
 [self.headerView addTransformingSubview:self.label attributes:attrs];
 ```   
    
-Lastly, trigger the header view to collapse by an offset in the `scrollViewDidScroll` delegate call.
+Lastly, tell the header view to collapse in the `scrollViewDidScroll` delegate call.
 ```objc
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
