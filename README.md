@@ -28,8 +28,7 @@ To use the collapsible header, you must first configure your `UIViewController` 
 You can then provide a vertical constraint (or constraints) to collapse, whether it be the header's top, bottom, or height.  
 ```objc
 [self.headerView setCollapsingConstraint:_headerHeight]
-```   
-```objc
+// or
 [self.headerView setCollapsingConstraint:_tableViewTop];
 ```  
 
