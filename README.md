@@ -25,31 +25,19 @@ To use the collapsible header, you must first configure your `UIViewController` 
 [self.headerView setMinimumHeaderHeight:100.]
 ```   
    
-You can then provide a vertical constraint to collapse, whether it be the header's top, bottom, or height.  
+You can then provide a vertical constraint (or constraints) to collapse, whether it be the header's top, bottom, or height.  
 ```objc
 [self.headerView setCollapsingConstraint:_headerHeight]
 ```   
-   
+```objc
+[self.headerView setCollapsingConstraint:_tableViewTop];
+```  
+
 Next, add any views to animate with the header as it collapses. Two methods are available to you:   
 - `addTransformingSubview:attributes:` Adds a view that transforms as the user scrolls. An array of `MGTransformAttribute` must be provided to describe the transformation. See [Attributes](#attributes) for more.
 - `addFadingSubview:fadeBy:` Adds a view that fades as the user scrolls.   
 Here are some examples from the Demo:   
 ```objc
-[self.headerView setDelegate:self];
-[self.headerView setCollapsingConstraint:_headerHeight];
-
-// Setting alwaysCollapse to NO will cause the header to collapse only if there is
-// enough room to scroll in the scroll view. Otherwise, scrolling through any content
-// size (even if empty) will collapse the header with a content inset (default).
-//
-//    [self.headerView setAlwaysCollapse:NO];
-
-// Multiple vertical contraints can be added to collapse. Note that the transformation
-// values will differ depending on how the header view is congifured to collapse.
-//
-//    [self.headerView setCollapsingConstraints:@[ _headerTop ]];
-//    [self.headerView setCollapsingConstraints:@[ _tableViewTop ]];
-
 [self.headerView addFadingSubview:self.button1 fadeBy:0.3];
 [self.headerView addFadingSubview:self.button2 fadeBy:0.3];
 [self.headerView addFadingSubview:self.button3 fadeBy:0.3];
