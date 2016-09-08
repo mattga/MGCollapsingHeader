@@ -8,7 +8,7 @@ An iOS UIView subclass to manage collapsing and expanding of a header view. Subv
 ![Demo Gif](Screenshots/mgch_demo.gif)
 
 ##Requirements
-- Autolayout (this UIView subclass relies on constraints to transform subviews)
+- Autolayout (constraints are relied on to transform subviews)
 - Supports iOS 7+
 
 ##Installation
@@ -20,7 +20,7 @@ pod 'MGCollapsingHeader'
 Or simply copy the `MGCollapsingHeader/` folder into your project.
 
 ##How to use
-To use the collapsible header, you must first configure your `UIViewController` with a header view. Simply set the Class of this view to `MGCollapsingHeaderView` and it will be ready to setup. The view collapses to a size of 60 px by default, but can be set:
+To use the collapsible header, you must first setup your `UIViewController` with a header view. Simply set the class of this view to `MGCollapsingHeaderView` and then you can configure how to transform the header. The view collapses to a size of 60 px by default, but can be set:
 ```objc
 [self.headerView setMinimumHeaderHeight:100.]
 ```   
@@ -32,10 +32,11 @@ You can then provide a vertical constraint (or constraints) to collapse, whether
 [self.headerView setCollapsingConstraint:_tableViewTop];
 ```  
 
-Next, add any views to animate with the header as it collapses. Two methods are available to you:   
-- `addTransformingSubview:attributes:` Adds a view that transforms as the user scrolls. An array of `MGTransformAttribute` must be provided to describe the transformation. See [Attributes](#attributes) for more.
+Next, add any views to transform with the header as it collapses:  
+- `transformAttribute:byValue:` Adds a view that transforms by some value as the user scrolls. An array of `MGTransformAttribute` must be provided to describe the transformation. See [Attributes](#attributes) for what is supported.
 - `addFadingSubview:fadeBy:` Adds a view that fades as the user scrolls.   
-Here are some examples from the Demo:   
+
+Examples (from the demo):   
 ```objc
 [self.headerView addFadingSubview:self.button1 fadeBy:0.3];
 [self.headerView addFadingSubview:self.button2 fadeBy:0.3];
@@ -72,7 +73,7 @@ attrs = @[
 [self.headerView addTransformingSubview:self.label attributes:attrs];
 ```   
    
-Lastly, trigger the header view to collapse by an offset. It will animate if the value is less than the `minimumHeaderHeight` and at most the height originally set. If using scrolling, the `scrollViewDidScroll` delegate call is the ideal place for this.
+Lastly, trigger the header view to collapse by an offset in the `scrollViewDidScroll` delegate call.
 ```objc
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
