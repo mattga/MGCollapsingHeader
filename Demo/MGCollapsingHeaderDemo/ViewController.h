@@ -10,11 +10,14 @@
 
 #import "MGCollapsingHeaderView.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MGCollapsingHeaderDelegate>
+@interface ViewController : UIViewController <MGCollapsingHeaderDelegate>
 
 @property (weak, nonatomic) IBOutlet MGCollapsingHeaderView *headerView;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerTop;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UIButton *button1;
 @property (weak, nonatomic) IBOutlet UIButton *button2;
@@ -24,4 +27,3 @@
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
-

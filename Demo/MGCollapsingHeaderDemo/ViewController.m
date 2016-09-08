@@ -14,41 +14,68 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-	[super viewDidLoad];
-	
-	[self.headerView setDelegate:self];
-	[self.headerView setBodyViewTop:self.tableViewTop];
-	[self.headerView addFadingSubview:self.button1 fadeBy:.3];
-	[self.headerView addFadingSubview:self.button2 fadeBy:.3];
-	[self.headerView addFadingSubview:self.button3 fadeBy:.3];
-	
-	NSArray *attrs;
-	double r = 18.;
-	attrs = @[[MGTransform attribute:MGAttributeX value:self.button4.frame.origin.x - r],
-			  [MGTransform attribute:MGAttributeY value:self.button4.frame.origin.y - r],
-			  [MGTransform attribute:MGAttributeWidth value:2*r],
-			  [MGTransform attribute:MGAttributeHeight value:2*r],
-			  [MGTransform attribute:MGAttributeCornerRadius value:r],
-			  [MGTransform attribute:MGAttributeFontSize value:15.]];
-	[self.headerView addTransformingSubview:self.button4 attributes:attrs];
-	
-	attrs = @[[MGTransform attribute:MGAttributeX value:520.],
-			  [MGTransform attribute:MGAttributeY value:20.],
-			  [MGTransform attribute:MGAttributeWidth value:40.],
-			  [MGTransform attribute:MGAttributeHeight value:35.]];
-	[self.headerView addTransformingSubview:self.button5 attributes:attrs];
-	
-	attrs = @[[MGTransform attribute:MGAttributeY value:20.],
-			  [MGTransform attribute:MGAttributeWidth value:120.],
-			  [MGTransform attribute:MGAttributeHeight value:34.],
-			  [MGTransform attribute:MGAttributeCornerRadius value:17.],
-			  [MGTransform attribute:MGAttributeFontSize value:25.]];
-	[self.headerView addTransformingSubview:self.label attributes:attrs];
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    [self.headerView setDelegate:self];
+    [self.headerView setCollapsingConstraint:_headerHeight];
+
+    // Setting alwaysCollapse to NO will cause the header to collapse only if there is
+    // enough room to scroll in the scroll view. Otherwise, scrolling through any content
+    // size (even if empty) will collapse the header with a content inset (default).
+    //
+    //    [self.headerView setAlwaysCollapse:NO];
+
+    // Multiple vertical contraints can be added to collapse. Note that the transformation
+    // values will differ depending on how the header view is congifured to collapse.
+    //
+    //    [self.headerView setCollapsingConstraint:_headerTop];
+    //    [self.headerView setCollapsingConstraint:_tableViewTop];
+
+    [self.headerView addFadingSubview:self.button1 fadeBy:0.3];
+    [self.headerView addFadingSubview:self.button2 fadeBy:0.3];
+    [self.headerView addFadingSubview:self.button3 fadeBy:0.3];
+
+    NSArray *attrs;
+    double r = 16.0;
+    attrs    = @[
+        [MGTransform transformAttribute:MGAttributeX byValue:-r],
+        [MGTransform transformAttribute:MGAttributeY byValue:-r],
+        [MGTransform transformAttribute:MGAttributeWidth byValue:2 * r],
+        [MGTransform transformAttribute:MGAttributeHeight byValue:2 * r],
+        [MGTransform transformAttribute:MGAttributeCornerRadius byValue:r],
+        [MGTransform transformAttribute:MGAttributeFontSize byValue:12.0]
+    ];
+    [self.headerView addTransformingSubview:self.button4 attributes:attrs];
+
+    // Push this button closer to the bottom-right corner since the header view's height
+    // is resizing.
+    attrs = @[
+        [MGTransform transformAttribute:MGAttributeX byValue:10.0],
+        [MGTransform transformAttribute:MGAttributeY byValue:13.0],
+        [MGTransform transformAttribute:MGAttributeWidth byValue:-32.0],
+        [MGTransform transformAttribute:MGAttributeHeight byValue:-32.0]
+    ];
+    [self.headerView addTransformingSubview:self.button5 attributes:attrs];
+
+    attrs = @[
+        [MGTransform transformAttribute:MGAttributeY byValue:-30.0],
+        [MGTransform transformAttribute:MGAttributeWidth byValue:-30.0],
+        [MGTransform transformAttribute:MGAttributeHeight byValue:-20.0],
+        [MGTransform transformAttribute:MGAttributeFontSize byValue:-10.]
+    ];
+    [self.headerView addTransformingSubview:self.label attributes:attrs];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-	return UIStatusBarStyleLightContent;
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 #pragma mark -
@@ -56,41 +83,47 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 50;
+    return 14;
 }
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableCell"];
-	cell.textLabel.text = [NSString stringWithFormat:@"CONTENT %d", (int)indexPath.row];
-	
-	return cell;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    cell.textLabel.text   = [NSString stringWithFormat:@"CONTENT %d", (int)indexPath.row];
+
+    return cell;
 }
 
 #pragma mark -
 #pragma mark Scroll View Delegate
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-	[self.headerView collapseToOffset:scrollView.contentOffset];
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.headerView collapseWithScroll:scrollView];
+
+    NSLog(@"V:|-(%.2f)-header(%.2f)-(%.2f)-|",
+          _headerTop.constant,
+          _headerHeight.constant,
+          _tableViewTop.constant);
 }
 
 #pragma mark -
 #pragma mark Collapsing Header Delegate
 
-- (void)headerDidCollapseToOffset:(double)offset {
-	NSLog(@"collapse %.4f", offset);
+- (void)headerDidCollapseToOffset:(double)offset
+{
+    NSLog(@"collapse %.4f", offset);
 }
-
-- (void)headerDidFinishCollapsing {
-	NSLog(@"collapsed!!!");
+- (void)headerDidFinishCollapsing
+{
+    NSLog(@"collapsed!!!");
 }
-
-- (void)headerDidExpandToOffset:(double)offset {
-	NSLog(@"expand %.4f", offset);
+- (void)headerDidExpandToOffset:(double)offset
+{
+    NSLog(@"expand %.4f", offset);
 }
-
-- (void)headerDidFinishExpanding {
-	NSLog(@"expanded!!!");
+- (void)headerDidFinishExpanding
+{
+    NSLog(@"expanded!!!");
 }
-
 @end

@@ -22,7 +22,6 @@
 //  SOFTWARE.
 //
 
-
 #import <UIKit/UIKit.h>
 
 @protocol MGCollapsingHeaderDelegate <NSObject>
@@ -65,9 +64,9 @@ typedef enum : NSUInteger {
 
 @property (nonatomic) MGAttribute attribute;
 @property (nonatomic) MGTransformCurve curve;
-@property (nonatomic) CGFloat value, origValue, dValue;
+@property (nonatomic) CGFloat value, origValue;
 
-+ (instancetype)attribute:(MGAttribute)attr value:(CGFloat)val;
++ (instancetype)transformAttribute:(MGAttribute)attr byValue:(CGFloat)val;
 
 @end
 
@@ -75,12 +74,13 @@ typedef enum : NSUInteger {
  * @brief Subclass of UIView that manages collapsing and expanding.
  */
 @interface MGCollapsingHeaderView : UIView {
+    NSArray *hdrConstrs, *hdrConstrVals;
     NSMutableArray *transfViews, *fadeViews;
     NSMutableDictionary *constrs, *constrVals, *transfAttrs, *alphaRatios;
+    NSDictionary *vertConstraints;
     CGFloat lastOffset;
     CGFloat header_ht, scroll_ht, offset_max;
-    NSLayoutConstraint *headerTop;
-	UIFont *font;
+    UIFont *font;
 }
 
 /**
@@ -94,14 +94,41 @@ typedef enum : NSUInteger {
 @property (nonatomic) CGFloat minimumHeaderHeight;
 
 /*!
- * @brief The top layout constraint to be expanded as the header collapses.
+ * @brief Forces the header to always collapse, even if the scrollable content is less
+ * than the offset to collapse the header.
+ * @discussion If set to @p NO, then the header will only collapse if there is enough
+ * content in the scroll view to collapse the header completely.
  */
-@property (strong, nonatomic) NSLayoutConstraint *bodyViewTop;
+@property (nonatomic) BOOL alwaysCollapse;
+
+/*!
+ * @brief Adds a constraint whose constant is offset when @p collapseWithScroll is called.
+ * @discussion Constraints are expected to have vertical alignment. Different behavior can
+ * be achieved depending on the constraints added. For example, adding the header height
+ * constraint will cause the header to change its frame size while automatically adjusting
+ * constraints of views within it. Adding the top or bottom constraint will cause the
+ * header to slide up.
+ * @param c Constraint to offset.
+ */
+- (void)setCollapsingConstraint:(NSLayoutConstraint *)c;
+
+/*!
+ * @brief Adds a set of constraints whose constants are offset when @p collapseWithScroll
+ * is called.
+ * @discussion Constraints are expected to have vertical alignment. Different behavior can
+ * be achieved depending on the constraints added. For example, adding the header height
+ * constraint will cause the header to change its frame size while automatically adjusting
+ * constraints of views within it. Adding the top or bottom constraint will cause the
+ * header to slide up.
+ * @param constrs Array of constraints to offset.
+ */
+- (void)setCollapsingConstraints:(NSArray *)constrs;
 
 /*!
  * @discussion Adds a view that transforms as the user scrolls.
  * @param view The view to transform.
- * @param attrs An array of MGTransformAttributes that describe the view in it's condensed form.
+ * @param attrs An array of MGTransformAttributes that describe the view in it's condensed
+ * form.
  * @return Boolean identifying if the transform was successfully added.
  */
 - (BOOL)addTransformingSubview:(UIView *)view attributes:(NSArray *)attrs;
@@ -115,10 +142,10 @@ typedef enum : NSUInteger {
 - (BOOL)addFadingSubview:(UIView *)view fadeBy:(CGFloat)ratio;
 
 /*!
- * @discussion Tells the header to collapse with some offset. This should be called from
- a scrollViewDidScroll call.
- * @param offset The content offset of the scroll view.
+ * @brief Tells the header to collapse with the scrolling of a UIScrollView.
+ * @discussion This method should be called from a @p scrollViewDidScroll: delegate call.
+ * @param scrollView The active scroll view.
  */
-- (void)collapseToOffset:(CGPoint)offset;
+- (void)collapseWithScroll:(UIScrollView *)scrollView;
 
 @end

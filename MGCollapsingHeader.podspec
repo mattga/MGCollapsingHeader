@@ -1,4 +1,4 @@
-@version = "1.0.5"
+@version = "1.0.6"
 
 Pod::Spec.new do |s|
 
@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.summary      = "UIView subclass to manage a collapsing and expanding header view."
 
   s.description  = <<-DESC
-  Subviews of the header are configured to transform to any collapsed layout. Intended to work with UIScrollView and UITableView as the user scrolls through content.
+  Subviews of the header are configured to transform to any collapsed layout. The header works with any UIScrollView, and transforms views as the user scrolls through content.
                    DESC
 
   s.homepage     = "https://github.com/mattga/MGCollapsingHeader"

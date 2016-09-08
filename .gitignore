@@ -3,6 +3,7 @@
 # Xcode
 #
 Demo/build/
+Screenshots/*.mov
 *.pbxuser
 !default.pbxuser
 *.mode1v3
