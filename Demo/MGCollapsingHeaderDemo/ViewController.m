@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate>
 
 @end
 
@@ -34,37 +34,15 @@
     //    [self.headerView setCollapsingConstraint:_tableViewTop];
 
     [self.headerView addFadingSubview:self.button1 fadeBy:0.3];
-    [self.headerView addFadingSubview:self.button2 fadeBy:0.3];
-    [self.headerView addFadingSubview:self.button3 fadeBy:0.3];
 
     NSArray *attrs;
-    double r = 16.0;
-    attrs    = @[
-        [MGTransform transformAttribute:MGAttributeX byValue:-r],
-        [MGTransform transformAttribute:MGAttributeY byValue:-r],
-        [MGTransform transformAttribute:MGAttributeWidth byValue:2 * r],
-        [MGTransform transformAttribute:MGAttributeHeight byValue:2 * r],
-        [MGTransform transformAttribute:MGAttributeCornerRadius byValue:r],
-        [MGTransform transformAttribute:MGAttributeFontSize byValue:12.0]
-    ];
-    [self.headerView addTransformingSubview:self.button4 attributes:attrs];
 
     // Push this button closer to the bottom-right corner since the header view's height
     // is resizing.
-    attrs = @[
-        [MGTransform transformAttribute:MGAttributeX byValue:10.0],
-        [MGTransform transformAttribute:MGAttributeY byValue:13.0],
-        [MGTransform transformAttribute:MGAttributeWidth byValue:-32.0],
-        [MGTransform transformAttribute:MGAttributeHeight byValue:-32.0]
-    ];
-    [self.headerView addTransformingSubview:self.button5 attributes:attrs];
 
     attrs = @[
-        [MGTransform transformAttribute:MGAttributeY byValue:-30.0],
-        [MGTransform transformAttribute:MGAttributeWidth byValue:-30.0],
-        [MGTransform transformAttribute:MGAttributeHeight byValue:-20.0],
-        [MGTransform transformAttribute:MGAttributeFontSize byValue:-10.]
-    ];
+              [MGTransform transformAttribute:MGAttributeAlpha byValue:1.0]
+              ];
     [self.headerView addTransformingSubview:self.label attributes:attrs];
 }
 
@@ -106,6 +84,38 @@
           _headerHeight.constant,
           _tableViewTop.constant);
 }
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self updateForScrollingEnded];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        [self updateForScrollingEnded];
+    }
+    
+    
+}
+
+- (void)updateForScrollingEnded {
+    if(self.headerView.frame.size.height > 60) { // 60 - min header height
+        if(self.headerView.frame.size.height < 155) { // half between full header (240) and collapsed one (60)
+            // hide
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            [self.headerView collapseWithScroll:self.tableView];
+        } else {
+            // reveal
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            [self.headerView collapseWithScroll:self.tableView];
+        }
+    }
+}
+
+// selecting row is canceling scroll event
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self updateForScrollingEnded];
+}
+
 
 #pragma mark -
 #pragma mark Collapsing Header Delegate
