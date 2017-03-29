@@ -221,10 +221,6 @@
         }
     }
 
-    CGRect hdrFrame   = self.frame;
-    hdrFrame.origin.y = -offset;
-    self.frame        = hdrFrame;
-
     for (int i = 0; i < [hdrConstrs count]; i++) {
         [(NSLayoutConstraint *)hdrConstrs[i]
             setConstant:[hdrConstrVals[i] floatValue] - offset];
