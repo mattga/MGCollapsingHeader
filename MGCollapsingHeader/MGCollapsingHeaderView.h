@@ -148,4 +148,7 @@ typedef enum : NSUInteger {
  */
 - (void)collapseWithScroll:(UIScrollView *)scrollView;
 
+- (void)collapseWithOffset:(CGFloat)offset;
+- (void)collapseWithOffset:(CGFloat)offset animated:(BOOL)animated;
+
 @end
