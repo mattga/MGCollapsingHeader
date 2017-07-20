@@ -104,22 +104,13 @@
 - (void)collapseWithScroll:(UIScrollView *)scrollView
 {
     CGFloat dy = scrollView.contentOffset.y;
-    if (scroll_ht < 0.) scroll_ht = scrollView.frame.size.height;
-    CGFloat scrollableHeight = scrollView.contentSize.height - scroll_ht;
+    CGPoint contentOffset = scrollView.contentOffset;
 
-    if (scrollableHeight / 2.0 < offset_max) {
-        if (_alwaysCollapse) {
-            UIEdgeInsets scrInset   = scrollView.contentInset;
-            scrInset.bottom         = 2. * offset_max - scrollableHeight;
-            scrollView.contentInset = scrInset;
-        } else {
-            return;
-        }
-    }
+    if (scroll_ht < 0.) scroll_ht = scrollView.frame.size.height;
 
     if (dy > 0.) {
         if (header_ht - dy > _minimumHeaderHeight) {
-            [self scrollHeaderToOffset:dy];
+            [self scrollHeaderToOffset:dy animated:NO];
             if (self.delegate) {
                 if (dy > lastOffset) {
                     [self.delegate headerDidCollapseToOffset:dy];
@@ -128,13 +119,55 @@
                 }
             }
         } else if (header_ht - lastOffset > _minimumHeaderHeight) {
-            [self scrollHeaderToOffset:offset_max];
+            [self scrollHeaderToOffset:offset_max animated:NO];
             if (self.delegate) {
                 [self.delegate headerDidFinishCollapsing];
             }
         }
     } else if (lastOffset > 0.) {
-        [self scrollHeaderToOffset:0.];
+        [self scrollHeaderToOffset:0. animated:NO];
+        if (self.delegate) {
+            if (dy < 0) { // Report negative offset from bouncing at top of scroll
+                [self.delegate headerDidExpandToOffset:dy];
+            } else {
+                [self.delegate headerDidFinishExpanding];
+            }
+        }
+    }
+
+    [self.superview setNeedsUpdateConstraints];
+    [self.superview setNeedsLayout];
+    [self.superview layoutIfNeeded];
+
+    lastOffset = dy;
+    scrollView.contentOffset = contentOffset;
+}
+
+- (void)collapseWithOffset:(CGFloat)offset {
+    [self collapseWithOffset:offset animated:NO];
+}
+
+- (void)collapseWithOffset:(CGFloat)offset animated:(BOOL)animated {
+    CGFloat dy = offset;
+
+    if (dy > 0.) {
+        if (header_ht - dy > _minimumHeaderHeight) {
+            [self scrollHeaderToOffset:dy animated:animated];
+            if (self.delegate) {
+                if (dy > lastOffset) {
+                    [self.delegate headerDidCollapseToOffset:dy];
+                } else {
+                    [self.delegate headerDidExpandToOffset:dy];
+                }
+            }
+        } else if (header_ht - lastOffset > _minimumHeaderHeight) {
+            [self scrollHeaderToOffset:offset_max animated:animated];
+            if (self.delegate) {
+                [self.delegate headerDidFinishCollapsing];
+            }
+        }
+    } else if (lastOffset > 0.) {
+        [self scrollHeaderToOffset:0. animated:animated];
         if (self.delegate) {
             if (dy < 0) { // Report negative offset from bouncing at top of scroll
                 [self.delegate headerDidExpandToOffset:dy];
@@ -198,14 +231,16 @@
     return YES;
 }
 
-- (void)scrollHeaderToOffset:(CGFloat)offset
+- (void)scrollHeaderToOffset:(CGFloat)offset animated:(BOOL)animated
 {
     CGFloat ratio = offset / offset_max;
 
-    for (UIView *view in fadeViews) {
-        CGFloat alphaRatio = [[alphaRatios objectForKey:@(view.hash)] doubleValue];
-        view.alpha         = -ratio / alphaRatio + 1;
-    }
+    [UIView animateWithDuration:animated ? 0.3 : 0.0 animations:^{
+        for (UIView *view in fadeViews) {
+            CGFloat alphaRatio = [[alphaRatios objectForKey:@(view.hash)] doubleValue];
+            view.alpha = -ratio / alphaRatio + 1;
+        }
+    }];
 
     for (UIView *view in transfViews) {
         NSDictionary *cs  = [constrs objectForKey:@(view.hash)];
@@ -213,11 +248,21 @@
         NSDictionary *as  = [transfAttrs objectForKey:@(view.hash)];
 
         for (MGTransform *a in as) {
-            [self setAttribute:a
-                            view:view
-                           ratio:ratio
-                     constraints:cs
-                constraintValues:cvs];
+            if (a.attribute == MGAttributeAlpha) {
+                [UIView animateWithDuration:animated ? 0.3 : 0.0 animations:^{
+                    [self setAttribute:a
+                                  view:view
+                                 ratio:ratio
+                           constraints:cs
+                      constraintValues:cvs];
+                }];
+            } else {
+                [self setAttribute:a
+                              view:view
+                             ratio:ratio
+                       constraints:cs
+                  constraintValues:cvs];
+            }
         }
     }
 
