@@ -135,10 +135,6 @@
         }
     }
 
-    [self.superview setNeedsUpdateConstraints];
-    [self.superview setNeedsLayout];
-    [self.superview layoutIfNeeded];
-
     lastOffset = dy;
     scrollView.contentOffset = contentOffset;
 }
@@ -176,10 +172,6 @@
             }
         }
     }
-
-    [self.superview setNeedsUpdateConstraints];
-    [self.superview setNeedsLayout];
-    [self.superview layoutIfNeeded];
 
     lastOffset = dy;
 }
@@ -265,12 +257,31 @@
             }
         }
     }
+    
+    [UIView animateWithDuration:animated ? 0.3 : 0.0 animations:^{
 
-    for (int i = 0; i < [hdrConstrs count]; i++) {
-        [(NSLayoutConstraint *)hdrConstrs[i]
-            setConstant:[hdrConstrVals[i] floatValue] - offset];
-    }
+        for (int i = 0; i < [hdrConstrs count]; i++) {
+            NSLayoutConstraint *constraint = hdrConstrs[i];
+            CGFloat newOffset = [hdrConstrVals[i] floatValue] - offset;
+            NSLog(@"Animating to %f with animation %i", newOffset, animated);
+            constraint.constant = newOffset;
+            [[self viewContainingConstraint:constraint forView:self].superview layoutIfNeeded];
+        }
+    }];
 }
+
+
+- (UIView *) viewContainingConstraint:(NSLayoutConstraint *)constraint forView:(UIView *)view {
+    if(view.superview == nil) {
+        return nil;
+    }
+    if([view.constraints containsObject:constraint]) {
+        return view;
+    }
+    
+    return [self viewContainingConstraint:constraint forView:view.superview];
+}
+
 
 #pragma mark -
 #pragma mark Helpers
