@@ -263,7 +263,6 @@
         for (int i = 0; i < [hdrConstrs count]; i++) {
             NSLayoutConstraint *constraint = hdrConstrs[i];
             CGFloat newOffset = [hdrConstrVals[i] floatValue] - offset;
-            NSLog(@"Animating to %f with animation %i", newOffset, animated);
             constraint.constant = newOffset;
             [[self viewContainingConstraint:constraint forView:self].superview layoutIfNeeded];
         }
