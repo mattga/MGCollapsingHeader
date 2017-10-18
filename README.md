@@ -7,11 +7,11 @@ An iOS UIView subclass to manage collapsing and expanding of a header view. Subv
 
 ![Demo Gif](Screenshots/mgch_demo.gif)
 
-##Requirements
+## Requirements
 - Autolayout (constraints are relied on to transform subviews)
 - Supports iOS 7+
 
-##Installation
+## Installation
 ###### With [CocoaPods](https://cocoapods.org/):
 ```ruby
 pod 'MGCollapsingHeader'
@@ -19,7 +19,7 @@ pod 'MGCollapsingHeader'
 
 Or simply copy the `MGCollapsingHeader/` folder into your project.
 
-##How to use
+## How to use
 To use the collapsible header, you must first setup your `UIViewController` with a header view. Simply set the class of this view to `MGCollapsingHeaderView` and then you can configure how to transform the header. The view collapses to a size of 60 px by default, but can be set:
 ```objc
 [self.headerView setMinimumHeaderHeight:100.]
@@ -81,7 +81,7 @@ Lastly, tell the header view to collapse in the `scrollViewDidScroll` delegate c
 }
 ```   
    
-###Attributes   
+### Attributes   
 Attributes are used to describe a subview at the end of collapsing. The following are currently available:   
 `MGAttributeX`  
 `MGAttributeY`  
@@ -95,5 +95,5 @@ Attributes are used to describe a subview at the end of collapsing. The followin
 
 The view's attributes will be (linearly) animated to from their default values.   
 
-##TODO
+## TODO
 - Transformation curve functions (EaseIn, EaseOut, EaseInOut)   
