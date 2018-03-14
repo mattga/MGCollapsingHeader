@@ -224,7 +224,8 @@
     CGRect hdrFrame   = self.frame;
     hdrFrame.origin.y = -offset;
     self.frame        = hdrFrame;
-
+    NSLog(@"Header frame: %@", NSStringFromCGRect(self.frame));
+    
     for (int i = 0; i < [hdrConstrs count]; i++) {
         [(NSLayoutConstraint *)hdrConstrs[i]
             setConstant:[hdrConstrVals[i] floatValue] - offset];

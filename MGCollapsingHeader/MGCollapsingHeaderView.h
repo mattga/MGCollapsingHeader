@@ -86,7 +86,7 @@ typedef enum : NSUInteger {
 /**
  * @brief An implementation of the header delegate.
  */
-@property (strong, nonatomic) id<MGCollapsingHeaderDelegate> delegate;
+@property (weak, nonatomic) id<MGCollapsingHeaderDelegate> delegate;
 
 /*!
  * @brief The minimum height of the header in it's collapsed state.
@@ -147,5 +147,8 @@ typedef enum : NSUInteger {
  * @param scrollView The active scroll view.
  */
 - (void)collapseWithScroll:(UIScrollView *)scrollView;
+
+- (void)collapseWithOffset:(CGFloat)offset;
+- (void)collapseWithOffset:(CGFloat)offset animated:(BOOL)animated;
 
 @end

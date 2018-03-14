@@ -32,7 +32,7 @@
     a.attribute    = attr;
     a.value        = val;
     a.curve        = MGTransformCurveLinear;
-
+    
     return a;
 }
 
@@ -67,12 +67,12 @@
     constrVals      = [@{} mutableCopy];
     alphaRatios     = [@{} mutableCopy];
     vertConstraints = @{
-        @(NSLayoutAttributeTop) : @YES,
-        @(NSLayoutAttributeTopMargin) : @YES,
-        @(NSLayoutAttributeBottom) : @YES,
-        @(NSLayoutAttributeBottomMargin) : @YES
-    };
-
+                        @(NSLayoutAttributeTop) : @YES,
+                        @(NSLayoutAttributeTopMargin) : @YES,
+                        @(NSLayoutAttributeBottom) : @YES,
+                        @(NSLayoutAttributeBottomMargin) : @YES
+                        };
+    
     header_ht = self.frame.size.height;
     scroll_ht = -1.;
     [self setMinimumHeaderHeight:60.];
@@ -94,7 +94,7 @@
 {
     hdrConstrs           = cs;
     NSMutableArray *vals = [@[] mutableCopy];
-
+    
     for (NSLayoutConstraint *c in cs) {
         [vals addObject:@(c.constant)];
     }
@@ -104,22 +104,13 @@
 - (void)collapseWithScroll:(UIScrollView *)scrollView
 {
     CGFloat dy = scrollView.contentOffset.y;
+    CGPoint contentOffset = scrollView.contentOffset;
+    
     if (scroll_ht < 0.) scroll_ht = scrollView.frame.size.height;
-    CGFloat scrollableHeight = scrollView.contentSize.height - scroll_ht;
-
-    if (scrollableHeight / 2.0 < offset_max) {
-        if (_alwaysCollapse) {
-            UIEdgeInsets scrInset   = scrollView.contentInset;
-            scrInset.bottom         = 2. * offset_max - scrollableHeight;
-            scrollView.contentInset = scrInset;
-        } else {
-            return;
-        }
-    }
-
+    
     if (dy > 0.) {
         if (header_ht - dy > _minimumHeaderHeight) {
-            [self scrollHeaderToOffset:dy];
+            [self scrollHeaderToOffset:dy animated:NO];
             if (self.delegate) {
                 if (dy > lastOffset) {
                     [self.delegate headerDidCollapseToOffset:dy];
@@ -128,13 +119,13 @@
                 }
             }
         } else if (header_ht - lastOffset > _minimumHeaderHeight) {
-            [self scrollHeaderToOffset:offset_max];
+            [self scrollHeaderToOffset:offset_max animated:NO];
             if (self.delegate) {
                 [self.delegate headerDidFinishCollapsing];
             }
         }
     } else if (lastOffset > 0.) {
-        [self scrollHeaderToOffset:0.];
+        [self scrollHeaderToOffset:0. animated:NO];
         if (self.delegate) {
             if (dy < 0) { // Report negative offset from bouncing at top of scroll
                 [self.delegate headerDidExpandToOffset:dy];
@@ -143,11 +134,45 @@
             }
         }
     }
+    
+    lastOffset = dy;
+    scrollView.contentOffset = contentOffset;
+}
 
-    [self.superview setNeedsUpdateConstraints];
-    [self.superview setNeedsLayout];
-    [self.superview layoutIfNeeded];
+- (void)collapseWithOffset:(CGFloat)offset {
+    [self collapseWithOffset:offset animated:NO];
+}
 
+- (void)collapseWithOffset:(CGFloat)offset animated:(BOOL)animated {
+    CGFloat dy = offset;
+    
+    if (dy > 0.) {
+        if (header_ht - dy > _minimumHeaderHeight) {
+            [self scrollHeaderToOffset:dy animated:animated];
+            if (self.delegate) {
+                if (dy > lastOffset) {
+                    [self.delegate headerDidCollapseToOffset:dy];
+                } else {
+                    [self.delegate headerDidExpandToOffset:dy];
+                }
+            }
+        } else if (header_ht - lastOffset > _minimumHeaderHeight) {
+            [self scrollHeaderToOffset:offset_max animated:animated];
+            if (self.delegate) {
+                [self.delegate headerDidFinishCollapsing];
+            }
+        }
+    } else if (lastOffset > 0.) {
+        [self scrollHeaderToOffset:0. animated:animated];
+        if (self.delegate) {
+            if (dy < 0) { // Report negative offset from bouncing at top of scroll
+                [self.delegate headerDidExpandToOffset:dy];
+            } else {
+                [self.delegate headerDidFinishExpanding];
+            }
+        }
+    }
+    
     lastOffset = dy;
 }
 
@@ -155,7 +180,7 @@
 {
     NSMutableDictionary *constrDict    = [@{} mutableCopy];
     NSMutableDictionary *constrValDict = [@{} mutableCopy];
-
+    
     UIView *v = view;
     while (v) {
         for (NSLayoutConstraint *c in v.constraints) {
@@ -169,19 +194,19 @@
         }
         v = v.superview;
     }
-
+    
     for (MGTransform *ta in attrs) {
         ta.origValue = [self getViewAttribute:[ta attribute] view:view];
     }
-
+    
     [transfViews addObject:view];
-
+    
     [transfAttrs setObject:attrs forKey:@(view.hash)];
-
+    
     [constrs setObject:constrDict forKey:@(view.hash)];
-
+    
     [constrVals setObject:constrValDict forKey:@(view.hash)];
-
+    
     return YES;
 }
 
@@ -190,46 +215,110 @@
     if (ratio < 0. || ratio > 1.) {
         return NO;
     }
-
+    
     [fadeViews addObject:view];
-
+    
     [alphaRatios setObject:@(ratio) forKey:@(view.hash)];
-
+    
     return YES;
 }
 
-- (void)scrollHeaderToOffset:(CGFloat)offset
+- (void)scrollHeaderToOffset:(CGFloat)offset animated:(BOOL)animated
 {
     CGFloat ratio = offset / offset_max;
-
-    for (UIView *view in fadeViews) {
-        CGFloat alphaRatio = [[alphaRatios objectForKey:@(view.hash)] doubleValue];
-        view.alpha         = -ratio / alphaRatio + 1;
+    
+    if (!animated) {
+        for (UIView *view in fadeViews) {
+            CGFloat alphaRatio = [[alphaRatios objectForKey:@(view.hash)] doubleValue];
+            view.alpha = -ratio / alphaRatio + 1;
+        }
+        
+        for (UIView *view in transfViews) {
+            NSDictionary *cs  = [constrs objectForKey:@(view.hash)];
+            NSDictionary *cvs = [constrVals objectForKey:@(view.hash)];
+            NSDictionary *as  = [transfAttrs objectForKey:@(view.hash)];
+            
+            for (MGTransform *a in as) {
+                if (a.attribute == MGAttributeAlpha) {
+                    [self setAttribute:a
+                                  view:view
+                                 ratio:ratio
+                           constraints:cs
+                      constraintValues:cvs];
+                } else {
+                    [self setAttribute:a
+                                  view:view
+                                 ratio:ratio
+                           constraints:cs
+                      constraintValues:cvs];
+                }
+            }
+            
+        }
+        
+        for (int i = 0; i < [hdrConstrs count]; i++) {
+            NSLayoutConstraint *constraint = hdrConstrs[i];
+            CGFloat newOffset = [hdrConstrVals[i] floatValue] - offset;
+            constraint.constant = newOffset;
+        }
+        
+        return;
     }
-
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        for (UIView *view in fadeViews) {
+            CGFloat alphaRatio = [[alphaRatios objectForKey:@(view.hash)] doubleValue];
+            view.alpha = -ratio / alphaRatio + 1;
+        }
+    }];
+    
     for (UIView *view in transfViews) {
         NSDictionary *cs  = [constrs objectForKey:@(view.hash)];
         NSDictionary *cvs = [constrVals objectForKey:@(view.hash)];
         NSDictionary *as  = [transfAttrs objectForKey:@(view.hash)];
-
+        
         for (MGTransform *a in as) {
-            [self setAttribute:a
-                            view:view
-                           ratio:ratio
-                     constraints:cs
-                constraintValues:cvs];
+            if (a.attribute == MGAttributeAlpha) {
+                [UIView animateWithDuration:0.3 animations:^{
+                    [self setAttribute:a
+                                  view:view
+                                 ratio:ratio
+                           constraints:cs
+                      constraintValues:cvs];
+                }];
+            } else {
+                [self setAttribute:a
+                              view:view
+                             ratio:ratio
+                       constraints:cs
+                  constraintValues:cvs];
+            }
         }
     }
-
-    CGRect hdrFrame   = self.frame;
-    hdrFrame.origin.y = -offset;
-    self.frame        = hdrFrame;
-
-    for (int i = 0; i < [hdrConstrs count]; i++) {
-        [(NSLayoutConstraint *)hdrConstrs[i]
-            setConstant:[hdrConstrVals[i] floatValue] - offset];
-    }
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        for (int i = 0; i < [hdrConstrs count]; i++) {
+            NSLayoutConstraint *constraint = hdrConstrs[i];
+            CGFloat newOffset = [hdrConstrVals[i] floatValue] - offset;
+            constraint.constant = newOffset;
+            [[self viewContainingConstraint:constraint forView:self].superview layoutIfNeeded];
+        }
+    }];
 }
+
+
+- (UIView *) viewContainingConstraint:(NSLayoutConstraint *)constraint forView:(UIView *)view {
+    if(view.superview == nil) {
+        return nil;
+    }
+    if([view.constraints containsObject:constraint]) {
+        return view;
+    }
+    
+    return [self viewContainingConstraint:constraint forView:view.superview];
+}
+
 
 #pragma mark -
 #pragma mark Helpers
@@ -237,34 +326,34 @@
 - (CGFloat)getViewAttribute:(MGAttribute)attribute view:(UIView *)view
 {
     switch (attribute) {
-    case MGAttributeX:
-        return view.frame.origin.x;
-    case MGAttributeY:
-        return view.frame.origin.y;
-    case MGAttributeWidth:
-        return view.frame.size.width;
-    case MGAttributeHeight:
-        return view.frame.size.height;
-    case MGAttributeAlpha:
-        return view.alpha;
-    case MGAttributeCornerRadius:
-        return view.layer.cornerRadius;
-    case MGAttributeShadowOpacity:
-        return view.layer.shadowOpacity;
-    case MGAttributeShadowRadius:
-        return view.layer.shadowRadius;
-    case MGAttributeFontSize:
-        if ([view isKindOfClass:[UILabel class]]) {
-            return [[(UILabel *)view font] pointSize];
-        } else if ([view isKindOfClass:[UIButton class]]) {
-            return [[[(UIButton *)view titleLabel] font] pointSize];
-        } else if ([view isKindOfClass:[UITextField class]]) {
-            return [[(UITextField *)view font] pointSize];
-        } else if ([view isKindOfClass:[UITextView class]]) {
-            return [[(UITextView *)view font] pointSize];
-        }
+        case MGAttributeX:
+            return view.frame.origin.x;
+        case MGAttributeY:
+            return view.frame.origin.y;
+        case MGAttributeWidth:
+            return view.frame.size.width;
+        case MGAttributeHeight:
+            return view.frame.size.height;
+        case MGAttributeAlpha:
+            return view.alpha;
+        case MGAttributeCornerRadius:
+            return view.layer.cornerRadius;
+        case MGAttributeShadowOpacity:
+            return view.layer.shadowOpacity;
+        case MGAttributeShadowRadius:
+            return view.layer.shadowRadius;
+        case MGAttributeFontSize:
+            if ([view isKindOfClass:[UILabel class]]) {
+                return [[(UILabel *)view font] pointSize];
+            } else if ([view isKindOfClass:[UIButton class]]) {
+                return [[[(UIButton *)view titleLabel] font] pointSize];
+            } else if ([view isKindOfClass:[UITextField class]]) {
+                return [[(UITextField *)view font] pointSize];
+            } else if ([view isKindOfClass:[UITextView class]]) {
+                return [[(UITextView *)view font] pointSize];
+            }
     }
-
+    
     return 0.0f;
 }
 
@@ -275,94 +364,94 @@
     constraintValues:(NSDictionary *)cvals
 {
     switch (attr.attribute) {
-    case MGAttributeX:
-        [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeLeading)]
-                   constrValue:[[cvals objectForKey:@(NSLayoutAttributeLeading)]
-                                   doubleValue]
-                     transform:attr
-                         ratio:ratio];
-        [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeLeadingMargin)]
-                   constrValue:[[cvals objectForKey:@(NSLayoutAttributeLeadingMargin)]
-                                   doubleValue]
-                     transform:attr
-                         ratio:ratio];
-        [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeTrailing)]
-                   constrValue:[[cvals objectForKey:@(NSLayoutAttributeTrailing)]
-                                   doubleValue]
-                     transform:attr
-                         ratio:ratio];
-        [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeTrailingMargin)]
-                   constrValue:[[cvals objectForKey:@(NSLayoutAttributeLeadingMargin)]
-                                   doubleValue]
-                     transform:attr
-                         ratio:ratio];
-        break;
-    case MGAttributeY:
-        [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeTop)]
-                   constrValue:[[cvals objectForKey:@(NSLayoutAttributeTop)] doubleValue]
-                     transform:attr
-                         ratio:ratio];
-        [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeTopMargin)]
-                   constrValue:[[cvals objectForKey:@(NSLayoutAttributeTopMargin)]
-                                   doubleValue]
-                     transform:attr
-                         ratio:ratio];
-        [self
-            updateConstraint:[cs objectForKey:@(NSLayoutAttributeBottom)]
-                 constrValue:[[cvals objectForKey:@(NSLayoutAttributeBottom)] doubleValue]
-                   transform:attr
-                       ratio:ratio];
-        [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeBottomMargin)]
-                   constrValue:[[cvals objectForKey:@(NSLayoutAttributeBottomMargin)]
-                                   doubleValue]
-                     transform:attr
-                         ratio:ratio];
-        break;
-    case MGAttributeWidth:
-        [self
-            updateConstraint:[cs objectForKey:@(NSLayoutAttributeWidth)]
-                 constrValue:[[cvals objectForKey:@(NSLayoutAttributeWidth)] doubleValue]
-                   transform:attr
-                       ratio:ratio];
-        break;
-    case MGAttributeHeight:
-        [self
-            updateConstraint:[cs objectForKey:@(NSLayoutAttributeHeight)]
-                 constrValue:[[cvals objectForKey:@(NSLayoutAttributeHeight)] doubleValue]
-                   transform:attr
-                       ratio:ratio];
-        break;
-    case MGAttributeCornerRadius:
-        view.layer.cornerRadius = attr.origValue + ratio * attr.value;
-        break;
-    case MGAttributeAlpha:
-        view.alpha = attr.origValue + ratio * attr.value;
-        break;
-    case MGAttributeShadowRadius:
-        view.layer.shadowRadius = attr.origValue + ratio * attr.value;
-        break;
-    case MGAttributeShadowOpacity:
-        view.layer.shadowOpacity = attr.origValue + ratio * attr.value;
-        break;
-    case MGAttributeFontSize:
-        if ([view isKindOfClass:[UILabel class]]) {
-            font = [UIFont fontWithName:[(UILabel *)view font].familyName
-                                   size:attr.origValue + ratio * attr.value];
-            [(UILabel *)view setFont:font];
-        } else if ([view isKindOfClass:[UIButton class]]) {
-            font = [UIFont fontWithName:[[(UIButton *)view titleLabel] font].familyName
-                                   size:attr.origValue + ratio * attr.value];
-            [[(UIButton *)view titleLabel] setFont:font];
-        } else if ([view isKindOfClass:[UITextField class]]) {
-            font = [UIFont fontWithName:[(UITextField *)view font].familyName
-                                   size:attr.origValue + ratio * attr.value];
-            [(UITextField *)view setFont:font];
-        } else if ([view isKindOfClass:[UITextView class]]) {
-            font = [UIFont fontWithName:[(UITextView *)view font].familyName
-                                   size:attr.origValue + ratio * attr.value];
-            [(UITextView *)view setFont:font];
-        }
-        break;
+        case MGAttributeX:
+            [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeLeading)]
+                       constrValue:[[cvals objectForKey:@(NSLayoutAttributeLeading)]
+                                    doubleValue]
+                         transform:attr
+                             ratio:ratio];
+            [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeLeadingMargin)]
+                       constrValue:[[cvals objectForKey:@(NSLayoutAttributeLeadingMargin)]
+                                    doubleValue]
+                         transform:attr
+                             ratio:ratio];
+            [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeTrailing)]
+                       constrValue:[[cvals objectForKey:@(NSLayoutAttributeTrailing)]
+                                    doubleValue]
+                         transform:attr
+                             ratio:ratio];
+            [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeTrailingMargin)]
+                       constrValue:[[cvals objectForKey:@(NSLayoutAttributeLeadingMargin)]
+                                    doubleValue]
+                         transform:attr
+                             ratio:ratio];
+            break;
+        case MGAttributeY:
+            [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeTop)]
+                       constrValue:[[cvals objectForKey:@(NSLayoutAttributeTop)] doubleValue]
+                         transform:attr
+                             ratio:ratio];
+            [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeTopMargin)]
+                       constrValue:[[cvals objectForKey:@(NSLayoutAttributeTopMargin)]
+                                    doubleValue]
+                         transform:attr
+                             ratio:ratio];
+            [self
+             updateConstraint:[cs objectForKey:@(NSLayoutAttributeBottom)]
+             constrValue:[[cvals objectForKey:@(NSLayoutAttributeBottom)] doubleValue]
+             transform:attr
+             ratio:ratio];
+            [self updateConstraint:[cs objectForKey:@(NSLayoutAttributeBottomMargin)]
+                       constrValue:[[cvals objectForKey:@(NSLayoutAttributeBottomMargin)]
+                                    doubleValue]
+                         transform:attr
+                             ratio:ratio];
+            break;
+        case MGAttributeWidth:
+            [self
+             updateConstraint:[cs objectForKey:@(NSLayoutAttributeWidth)]
+             constrValue:[[cvals objectForKey:@(NSLayoutAttributeWidth)] doubleValue]
+             transform:attr
+             ratio:ratio];
+            break;
+        case MGAttributeHeight:
+            [self
+             updateConstraint:[cs objectForKey:@(NSLayoutAttributeHeight)]
+             constrValue:[[cvals objectForKey:@(NSLayoutAttributeHeight)] doubleValue]
+             transform:attr
+             ratio:ratio];
+            break;
+        case MGAttributeCornerRadius:
+            view.layer.cornerRadius = attr.origValue + ratio * attr.value;
+            break;
+        case MGAttributeAlpha:
+            view.alpha = attr.origValue + ratio * attr.value;
+            break;
+        case MGAttributeShadowRadius:
+            view.layer.shadowRadius = attr.origValue + ratio * attr.value;
+            break;
+        case MGAttributeShadowOpacity:
+            view.layer.shadowOpacity = attr.origValue + ratio * attr.value;
+            break;
+        case MGAttributeFontSize:
+            if ([view isKindOfClass:[UILabel class]]) {
+                font = [UIFont fontWithName:[(UILabel *)view font].familyName
+                                       size:attr.origValue + ratio * attr.value];
+                [(UILabel *)view setFont:font];
+            } else if ([view isKindOfClass:[UIButton class]]) {
+                font = [UIFont fontWithName:[[(UIButton *)view titleLabel] font].familyName
+                                       size:attr.origValue + ratio * attr.value];
+                [[(UIButton *)view titleLabel] setFont:font];
+            } else if ([view isKindOfClass:[UITextField class]]) {
+                font = [UIFont fontWithName:[(UITextField *)view font].familyName
+                                       size:attr.origValue + ratio * attr.value];
+                [(UITextField *)view setFont:font];
+            } else if ([view isKindOfClass:[UITextView class]]) {
+                font = [UIFont fontWithName:[(UITextView *)view font].familyName
+                                       size:attr.origValue + ratio * attr.value];
+                [(UITextView *)view setFont:font];
+            }
+            break;
     }
 }
 
@@ -373,24 +462,25 @@
 {
     if (constraint) {
         switch (constraint.firstAttribute) {
-        case NSLayoutAttributeTop:
-        case NSLayoutAttributeTopMargin:
-        case NSLayoutAttributeLeading:
-        case NSLayoutAttributeLeadingMargin:
-        case NSLayoutAttributeWidth:
-        case NSLayoutAttributeHeight:
-            constraint.constant = cv + ratio * ta.value;
-            break;
-        case NSLayoutAttributeBottom:
-        case NSLayoutAttributeBottomMargin:
-        case NSLayoutAttributeTrailing:
-        case NSLayoutAttributeTrailingMargin:
-            constraint.constant = cv - ratio * ta.value;
-            break;
-        default:
-            break;
+            case NSLayoutAttributeTop:
+            case NSLayoutAttributeTopMargin:
+            case NSLayoutAttributeLeading:
+            case NSLayoutAttributeLeadingMargin:
+            case NSLayoutAttributeWidth:
+            case NSLayoutAttributeHeight:
+                constraint.constant = cv + ratio * ta.value;
+                break;
+            case NSLayoutAttributeBottom:
+            case NSLayoutAttributeBottomMargin:
+            case NSLayoutAttributeTrailing:
+            case NSLayoutAttributeTrailingMargin:
+                constraint.constant = cv - ratio * ta.value;
+                break;
+            default:
+                break;
         }
     }
 }
 
 @end
+
